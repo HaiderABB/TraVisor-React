@@ -64,20 +64,10 @@ const SignUp = () => {
   return (
     <div style={containerStyle}>
       <div style={whiteDiv}>
-        <p style={{ fontWeight: 'bold', fontSize: '1.5rem', alignSelf: 'flex-start', margin: '0' }}>Create Account</p>
+        <p style={{ fontWeight: 'bold', fontSize: '1.5rem', alignSelf: 'flex-start', margin: '0' }}>Login to continue</p>
 
         <div style={details}>
-          <p style={{ fontSize: '1rem', alignSelf: 'start', opacity: '60%' }}>Name and Surname</p>
-          <FormControl sx={{ m: 0, width: '100%' }} variant="outlined">
-            <OutlinedInput
-              placeholder='Enter your name and surname'
-              style={commonInputStyle}
-            />
-          </FormControl>
-        </div>
-
-        <div style={details}>
-          <p style={{ fontSize: '1rem', alignSelf: 'start', opacity: '60%' }}>Email Address</p>
+          <p style={{ fontSize: '1rem', alignSelf: 'start' }}>Email Address</p>
           <FormControl sx={{ m: 0, width: '100%' }} variant="outlined">
             <OutlinedInput
               placeholder='Enter your email address'
@@ -87,7 +77,7 @@ const SignUp = () => {
         </div>
 
         <div style={details}>
-          <p style={{ fontSize: '1rem', alignSelf: 'start', opacity: '60%' }}>Password</p>
+          <p style={{ fontSize: '1rem', alignSelf: 'start' }}>Password</p>
           <FormControl sx={{ m: 0, width: '100%' }} variant="outlined">
             <OutlinedInput
               placeholder='Enter your password'
@@ -109,15 +99,7 @@ const SignUp = () => {
             />
           </FormControl>
         </div>
-
-        <FormControlLabel
-          control={<Checkbox />}
-          label={
-            <span style={{ fontSize: '0.8rem', fontFamily: 'Open Sans', opacity: '60%' }}>
-              I agree with <span style={{ color: 'orange' }}>Terms</span> and <span style={{ color: 'orange' }}>Privacy</span>
-            </span>
-          }
-        />
+        <p style={{ color: '#333333', opacity: '60%', fontSize: '0.8rem', textAlign: 'right', marginTop: '0.5rem', marginBottom: '0.5rem' }}>Forgot your password?</p>
         <Button sx={{ textTransform: 'none' }} variant="contained" size="medium" style={{ color: '#FFFFFF', backgroundColor: '#FA8B02', border: 'none', borderRadius: '1.5rem', width: '100%', fontFamily: 'Open Sans' }}>
           Sign Up
         </Button>
@@ -125,7 +107,7 @@ const SignUp = () => {
         <Button sx={{ textTransform: 'none', borderColor: '#333333' }} size="medium" style={{ borderColor: '#333333', color: '#333333', display: 'flex', borderRadius: '1.5rem', gap: '1rem', border: '0.1rem solid rgba(51, 51, 51, 0.6)' }} variant="outlined" startIcon={<FcGoogle />}>
           <span style={{ opacity: '60%' }}>Sign Up with Google</span>
         </Button>
-        <p>Already have an account? <span style={{ color: 'orange' }}>Log In</span></p>
+        <p>Don't have an account? <span style={{ color: 'orange' }}>Sign Up</span></p>
       </div>
     </div >
   );

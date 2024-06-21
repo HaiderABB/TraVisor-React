@@ -1,5 +1,5 @@
 import React from 'react';
-import signUpBg from '../Assets/signUpBg.png';
+import signUpBg from '../../Assets/signUpBg.png';
 import IconButton from '@mui/material/IconButton';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment';

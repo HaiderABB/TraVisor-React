@@ -1,20 +1,20 @@
 /* eslint-disable no-unused-vars */
 import './App.css';
-import SignUp from './Pages/SignUp';
-import LogIn from './Pages/LogIn';
-import ForgotPassword from './Pages/ForgotPassword';
-import CheckEmail from './Pages/CheckEmail';
-import ResetPassword from './Pages/ResetPassword';
-import SetNewPassword from './Pages/SetNewPassword'
+import SignUp from './Pages/Auth/SignUp';
+import LogIn from './Pages/Auth/LogIn';
+import ForgotPassword from './Pages/Auth/ForgotPassword';
+import CheckEmail from './Pages/Auth/CheckEmail';
+import ResetPassword from './Pages/Auth/ResetPassword';
+import SetNewPassword from './Pages/Auth/SetNewPassword'
 function App() {
   return (
     <div className="App">
       {/* <SignUp /> */}
       {/* <LogIn /> */}
       {/* <ForgotPassword /> */}
-      {/* <CheckEmail /> */}
+      <CheckEmail />
       {/* <ResetPassword></ResetPassword> */}
-      <SetNewPassword />
+      {/* <SetNewPassword /> */}
     </div>
   );
 }

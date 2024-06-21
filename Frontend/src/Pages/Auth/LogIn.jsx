@@ -63,7 +63,7 @@ const SignUp = () => {
         <p style={{ fontWeight: 'bold', fontSize: '1.5rem', alignSelf: 'flex-start', margin: '0' }}>Login to continue</p>
 
         <div style={details}>
-          <p style={{ fontSize: '1rem', alignSelf: 'start' }}>Email Address</p>
+          <p style={{ fontSize: '1rem', alignSelf: 'start', opacity: '60%', fontWeight: '600' }}>Email Address</p>
           <FormControl sx={{ m: 0, width: '100%' }} variant="outlined">
             <OutlinedInput
               placeholder='Enter your email address'
@@ -73,7 +73,7 @@ const SignUp = () => {
         </div>
 
         <div style={details}>
-          <p style={{ fontSize: '1rem', alignSelf: 'start' }}>Password</p>
+          <p style={{ fontSize: '1rem', alignSelf: 'start', opacity: '60%', fontWeight: '600' }}>Password</p>
           <FormControl sx={{ m: 0, width: '100%' }} variant="outlined">
             <OutlinedInput
               placeholder='Enter your password'

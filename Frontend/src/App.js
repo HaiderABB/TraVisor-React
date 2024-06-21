@@ -12,9 +12,9 @@ function App() {
       {/* <SignUp /> */}
       {/* <LogIn /> */}
       {/* <ForgotPassword /> */}
-      <CheckEmail />
-      {/* <ResetPassword></ResetPassword> */}
+      {/* <CheckEmail /> */}
       {/* <SetNewPassword /> */}
+      <ResetPassword></ResetPassword>
     </div>
   );
 }

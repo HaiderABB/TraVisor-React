@@ -1,8 +1,8 @@
 import React from 'react';
-import signUpBg from '../Assets/signUpBg.png';
+import signUpBg from '../../Assets/signUpBg.png';
 import { Button } from '@mui/material';
 import { IoIosArrowRoundBack } from "react-icons/io";
-import check from '../Assets/check.png'
+import check from '../../Assets/check.png'
 const SignUp = () => {
   const containerStyle = {
     backgroundImage: `url(${signUpBg})`,

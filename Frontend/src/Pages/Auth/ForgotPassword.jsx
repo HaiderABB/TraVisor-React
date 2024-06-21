@@ -1,9 +1,9 @@
 import React from 'react';
-import signUpBg from '../Assets/signUpBg.png';
+import signUpBg from '../../Assets/signUpBg.png';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import FormControl from '@mui/material/FormControl';
 import { Button } from '@mui/material';
-import ForgotPassword from '../Assets/ForgotPassword.png'
+import ForgotPassword from '../../Assets/ForgotPassword.png'
 import { IoIosArrowRoundBack } from "react-icons/io";
 
 const SignUp = () => {
@@ -42,19 +42,11 @@ const SignUp = () => {
     height: '2.5rem'  // Common height for all input fields
   }
 
-  const p = {
-    margin: 'auto',
-    opacity: '60%'
-  };
-
-  const pHeading = {
-    margin: 'auto'
-  };
 
   return (
     <div style={containerStyle}>
       <div style={whiteDiv}>
-        <img src={ForgotPassword} style={{ width: '3rem', alignSelf: 'center', marginTop: '0' }}></img>
+        <img src={ForgotPassword} style={{ width: '3rem', alignSelf: 'center', marginTop: '0' }} alt='password logo'></img>
         <p style={{ fontWeight: 'bold', fontSize: '1.5rem', alignSelf: 'center', margin: '0', color: '#333333' }}>Forgot Password</p>
         <p style={{ fontSize: '0.8rem', marginTop: '0.5rem', marginBottom: '0.5rem' }}>No worries, we'll send you reset instructions</p>
         <div style={details}>

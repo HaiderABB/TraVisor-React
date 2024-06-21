@@ -6,7 +6,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { Button, Checkbox, FormControlLabel } from '@mui/material';
+import { Button } from '@mui/material';
 import { FcGoogle } from "react-icons/fc";
 
 const SignUp = () => {
@@ -55,10 +55,6 @@ const SignUp = () => {
   const p = {
     margin: 'auto',
     opacity: '60%'
-  };
-
-  const pHeading = {
-    margin: 'auto'
   };
 
   return (

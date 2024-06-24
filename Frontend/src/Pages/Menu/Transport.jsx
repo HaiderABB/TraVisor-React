@@ -52,8 +52,9 @@ const Transport = () => {
     <div>
       <Navbar />
       <div style={upperDiv}>
-        <div style={{ paddingTop: '15rem', paddingBottom: '2.5rem' }}><p style={{ color: '#FFFFFF', fontWeight: '700', fontFamily: 'Montserrat', textAlign: 'left', marginLeft: '3rem', fontSize: '1.5rem' }}>TRANSPORTATION</p>
-          <p style={{ color: '#FFFFFF', textAlign: 'left', marginLeft: '3rem' }}>Special offers to suit your plan</p></div>
+        <div style={{ paddingTop: '18rem', paddingBottom: '2.5rem' }}><p style={{ color: '#FFFFFF', fontWeight: '700', fontFamily: 'Montserrat', textAlign: 'left', marginLeft: '5rem', fontSize: '2rem' }}>TRANSPORTATION</p>
+          <p style={{ color: '#FFFFFF', textAlign: 'left', marginLeft: '5rem' }}>Special offers to suit your plan</p>
+        </div>
       </div>
       <div style={middleDiv}>
         <p style={{ color: '#112211', fontSize: '1.5rem', fontWeight: '600' }}>Where are you flying?</p>

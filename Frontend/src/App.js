@@ -6,6 +6,8 @@ import ForgotPassword from './Pages/Auth/ForgotPassword';
 import CheckEmail from './Pages/Auth/CheckEmail';
 import ResetPassword from './Pages/Auth/ResetPassword';
 import SetNewPassword from './Pages/Auth/SetNewPassword'
+import Navbar from './Components/Navbar';
+import Transport from './Pages/Menu/Transport';
 function App() {
   return (
     <div className="App">
@@ -14,7 +16,8 @@ function App() {
       {/* <ForgotPassword /> */}
       {/* <CheckEmail /> */}
       {/* <SetNewPassword /> */}
-      <ResetPassword></ResetPassword>
+      {/* <ResetPassword></ResetPassword> */}
+      <Transport></Transport>
     </div>
   );
 }

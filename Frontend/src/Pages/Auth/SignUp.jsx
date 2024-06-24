@@ -8,12 +8,14 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { Button, Checkbox, FormControlLabel } from '@mui/material';
 import { FcGoogle } from "react-icons/fc";
+import { useState } from 'react';
 
 const SignUp = () => {
 
   const [showPassword, setShowPassword] = React.useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
+
 
   const handleMouseDownPassword = (event) => {
     event.preventDefault();

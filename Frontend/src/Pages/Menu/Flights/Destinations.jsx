@@ -18,7 +18,7 @@ const Destinations = () => {
 
   const detailsTag = { display: 'flex', flexDirection: 'column', color: '#FFFFFF', fontFamily: 'Montserrat', paddingTop: '94%' };
   const detailsName = { fontWeight: '550', paddingLeft: '5%', fontSize: '1.5rem' };
-  const detailsCost = { display: 'flex', fontSize: '0.7rem', paddingLeft: '5%', gap: '20%', fontSize: '1rem' };
+  const detailsCost = { display: 'flex', paddingLeft: '5%', gap: '20%', fontSize: '1rem' };
 
   return (
     <div style={mainStyles}>

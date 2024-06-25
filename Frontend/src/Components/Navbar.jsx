@@ -18,7 +18,7 @@ const Navbar = () => {
         <p>About Us</p>
       </div>
       <div className='profile-Photo-Div'>
-        <img src={SearchLogo} style={{ height: '2rem', alignSelf: 'center' }} alt=''></img>
+        {/* <img src={SearchLogo} style={{ height: '2rem', alignSelf: 'center' }} alt=''></img> */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}><img src={profilePhoto} style={{ height: '2.5rem' }} alt=''>
         </img>
           <p>Your Profile</p>

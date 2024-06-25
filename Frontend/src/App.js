@@ -7,7 +7,7 @@ import CheckEmail from './Pages/Auth/CheckEmail';
 import ResetPassword from './Pages/Auth/ResetPassword';
 import SetNewPassword from './Pages/Auth/SetNewPassword'
 import Navbar from './Components/Navbar';
-import Transport from './Pages/Menu/Transport';
+import Flights from './Pages/Menu/Flights/Flights';
 function App() {
   return (
     <div className="App">
@@ -17,7 +17,7 @@ function App() {
       {/* <CheckEmail /> */}
       {/* <SetNewPassword /> */}
       {/* <ResetPassword></ResetPassword> */}
-      <Transport></Transport>
+      <Flights />
     </div>
   );
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../../../Components/Navbar'
 import PlaneTransport from '../../../Assets/PlaneTransport.png'
 import FlightBooking from './FlightBooking'
+import Destinations from './Destinations'
 
 const Flights = () => {
   const upperDiv = {
@@ -20,6 +21,7 @@ const Flights = () => {
         </div>
       </div>
       <FlightBooking />
+      <Destinations />
     </div>
   )
 }

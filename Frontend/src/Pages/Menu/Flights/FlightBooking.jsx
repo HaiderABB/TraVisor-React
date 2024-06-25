@@ -58,15 +58,15 @@ const FlightBooking = () => {
     setTrip(event.target.value);
   };
 
-  const inputDivs = { width: '70%', display: 'flex', alignSelf: 'center', padding: '1rem', gap: '0.5rem', placeContent: 'center', };
+  const inputDivs = { width: '80%', display: 'flex', alignSelf: 'center', padding: '1rem', gap: '0.5rem', placeContent: 'center', };
 
-  const inputDivsCalender = { width: '70%', display: 'flex', alignSelf: 'center', padding: '1rem', gap: '1.5rem', placeContent: 'center', };
+  const inputDivsCalender = { width: '80%', display: 'flex', alignSelf: 'center', padding: '1rem', gap: '1.5rem', placeContent: 'center', };
 
   const buttonDisabled = {
-    width: '15rem', backgroundColor: '#D9D9D9', color: 'black', textTransform: 'none', fontSize: '1rem', fontWeight: '500', fontFamily: 'Montserrat'
+    width: '45%', backgroundColor: '#D9D9D9', color: 'black', textTransform: 'none', fontSize: '1rem', fontWeight: '500', fontFamily: 'Montserrat'
   };
   const buttonEnabled = {
-    width: '15rem', backgroundColor: 'black', color: '#D9D9D9', textTransform: 'none', fontSize: '1rem', fontWeight: '500', fontFamily: 'Montserrat'
+    width: '45%', backgroundColor: 'black', color: '#D9D9D9', textTransform: 'none', fontSize: '1rem', fontWeight: '500', fontFamily: 'Montserrat'
   };
   return (
     <div>
@@ -226,6 +226,7 @@ const FlightBooking = () => {
               >
                 <DatePicker
                   label='Arrival'
+                  sx={{ width: '100%' }}
                   slotProps={{
                     field: { clearable: true },
                   }}
@@ -270,6 +271,8 @@ const FlightBooking = () => {
               >
                 <DatePicker
                   label='Return'
+                  sx={{ width: '100%' }}
+
                   slotProps={{
                     field: { clearable: true },
                   }}
@@ -278,12 +281,12 @@ const FlightBooking = () => {
             </LocalizationProvider>
           </div>
         </div>
-        <div style={{ display: 'flex', alignSelf: 'center', gap: '4rem', paddingTop: '1.5rem' }}>
+        <div style={{ display: 'flex', alignSelf: 'center', width: '50%', paddingTop: '1.5rem', justifyContent: 'space-between', gap: '1rem' }}>
           <Button onClick={() => disabledButton(0)} style={disabled[0] ? buttonDisabled : buttonEnabled} variant="contained">Economy</Button>
           <Button onClick={() => disabledButton(1)} style={disabled[1] ? buttonDisabled : buttonEnabled} variant="contained">Business</Button>
           <Button onClick={() => disabledButton(2)} style={disabled[2] ? buttonDisabled : buttonEnabled} variant="contained">First Class</Button>
         </div>
-        <Button style={{ width: '10rem', height: '3rem', backgroundColor: '#8DD3BB', color: 'black', textTransform: 'none', fontSize: '1rem', fontFamily: 'Montserrat', alignSelf: 'center', marginTop: '2rem' }} variant="contained" startIcon={<IoNavigateSharp />}>
+        <Button style={{ width: '20%', height: '3rem', backgroundColor: '#8DD3BB', color: 'black', textTransform: 'none', fontSize: '1rem', fontFamily: 'Montserrat', alignSelf: 'center', marginTop: '2rem' }} variant="contained" startIcon={<IoNavigateSharp />}>
           Search
         </Button>
       </div>

@@ -19,7 +19,7 @@ const SignUp = () => {
   const whiteDiv = {
     backgroundColor: "white",
     padding: '2.5rem',
-    width: '17rem', display: 'flex', flexDirection: 'column',
+    width: '30%', display: 'flex', flexDirection: 'column',
     borderRadius: '1rem',
     gap: '0.5rem'
 
@@ -35,7 +35,7 @@ const SignUp = () => {
           Open email app
         </Button>
         <p style={{ fontSize: '0.7rem' }}>Didn't recieve the email? <span style={{ color: 'orange' }}>Click to resend</span></p>
-        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: '0.1rem', color: "#333333", opacity: '60%', marginTop: '-0.8rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: '0.1rem', color: "#333333", opacity: '60%', paddingTop: '1%' }}>
           <IoIosArrowRoundBack size={30} /> <p style={{ fontSize: '0.9rem' }}>Back to Login</p>
         </div>
       </div>

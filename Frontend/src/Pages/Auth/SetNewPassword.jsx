@@ -64,7 +64,7 @@ const SignUp = () => {
         <p style={{ fontWeight: 'bold', fontSize: '1.5rem', alignSelf: 'center', margin: '0', color: '#333333' }}>Set New Password</p>
         <p style={{ fontSize: '0.8rem', marginTop: '0.5rem', marginBottom: '0.5rem' }}>Your new password must be different from previously used passwords</p>
         <div style={details}>
-          <p style={{ fontSize: '1rem', alignSelf: 'start', opacity: '60%' }}>New Password</p>
+          <p style={{ fontSize: '1rem', alignSelf: 'start', opacity: '60%', fontWeight: '600' }}>New Password</p>
           <FormControl sx={{ m: 0, width: '100%' }} variant="outlined">
             <OutlinedInput
               placeholder='Enter your password'
@@ -87,7 +87,7 @@ const SignUp = () => {
           </FormControl>
         </div>
         <div style={details}>
-          <p style={{ fontSize: '1rem', alignSelf: 'start', opacity: '60%' }}>Confirm Password</p>
+          <p style={{ fontSize: '1rem', alignSelf: 'start', opacity: '60%', fontWeight: '600' }}>Confirm Password</p>
           <FormControl sx={{ m: 0, width: '100%' }} variant="outlined">
             <OutlinedInput
               placeholder='Enter your password'

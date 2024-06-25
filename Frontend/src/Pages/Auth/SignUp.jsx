@@ -8,12 +8,14 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { Button, Checkbox, FormControlLabel } from '@mui/material';
 import { FcGoogle } from "react-icons/fc";
+import { useState } from 'react';
 
 const SignUp = () => {
 
   const [showPassword, setShowPassword] = React.useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
+
 
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
@@ -63,7 +65,7 @@ const SignUp = () => {
         <p style={{ fontWeight: 'bold', fontSize: '1.5rem', alignSelf: 'flex-start', margin: '0' }}>Create Account</p>
 
         <div style={details}>
-          <p style={{ fontSize: '1rem', alignSelf: 'start', opacity: '60%' }}>Name and Surname</p>
+          <p style={{ fontSize: '1rem', alignSelf: 'start', opacity: '60%', fontWeight: '600' }}>Name and Surname</p>
           <FormControl sx={{ m: 0, width: '100%' }} variant="outlined">
             <OutlinedInput
               placeholder='Enter your name and surname'
@@ -73,7 +75,7 @@ const SignUp = () => {
         </div>
 
         <div style={details}>
-          <p style={{ fontSize: '1rem', alignSelf: 'start', opacity: '60%' }}>Email Address</p>
+          <p style={{ fontSize: '1rem', alignSelf: 'start', opacity: '60%', fontWeight: '600' }}>Email Address</p>
           <FormControl sx={{ m: 0, width: '100%' }} variant="outlined">
             <OutlinedInput
               placeholder='Enter your email address'
@@ -83,7 +85,7 @@ const SignUp = () => {
         </div>
 
         <div style={details}>
-          <p style={{ fontSize: '1rem', alignSelf: 'start', opacity: '60%' }}>Password</p>
+          <p style={{ fontSize: '1rem', alignSelf: 'start', opacity: '60%', fontWeight: '600' }}>Password</p>
           <FormControl sx={{ m: 0, width: '100%' }} variant="outlined">
             <OutlinedInput
               placeholder='Enter your password'
@@ -109,7 +111,7 @@ const SignUp = () => {
         <FormControlLabel
           control={<Checkbox />}
           label={
-            <span style={{ fontSize: '0.8rem', fontFamily: 'Open Sans', opacity: '60%' }}>
+            <span style={{ fontSize: '0.8rem', fontFamily: 'Open Sans', opacity: '60%', fontWeight: '600' }}>
               I agree with <span style={{ color: 'orange' }}>Terms</span> and <span style={{ color: 'orange' }}>Privacy</span>
             </span>
           }

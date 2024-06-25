@@ -6,15 +6,18 @@ import ForgotPassword from './Pages/Auth/ForgotPassword';
 import CheckEmail from './Pages/Auth/CheckEmail';
 import ResetPassword from './Pages/Auth/ResetPassword';
 import SetNewPassword from './Pages/Auth/SetNewPassword'
+import Navbar from './Components/Navbar';
+import Flights from './Pages/Menu/Flights/Flights';
 function App() {
   return (
     <div className="App">
       {/* <SignUp /> */}
       {/* <LogIn /> */}
       {/* <ForgotPassword /> */}
-      <CheckEmail />
-      {/* <ResetPassword></ResetPassword> */}
+      {/* <CheckEmail /> */}
       {/* <SetNewPassword /> */}
+      {/* <ResetPassword></ResetPassword> */}
+      <Flights />
     </div>
   );
 }

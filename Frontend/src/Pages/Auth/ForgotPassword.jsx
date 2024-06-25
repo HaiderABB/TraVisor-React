@@ -50,7 +50,7 @@ const SignUp = () => {
         <p style={{ fontWeight: 'bold', fontSize: '1.5rem', alignSelf: 'center', margin: '0', color: '#333333' }}>Forgot Password</p>
         <p style={{ fontSize: '0.8rem', marginTop: '0.5rem', marginBottom: '0.5rem' }}>No worries, we'll send you reset instructions</p>
         <div style={details}>
-          <p style={{ fontSize: '1rem', alignSelf: 'start', marginTop: '0.5rem', opacity: '60%' }}>Email Address</p>
+          <p style={{ fontSize: '1rem', alignSelf: 'start', marginTop: '0.5rem', opacity: '60%', fontWeight: '600' }}>Email Address</p>
           <FormControl sx={{ m: 0, width: '100%' }} variant="outlined">
             <OutlinedInput
               placeholder='Enter your email address'

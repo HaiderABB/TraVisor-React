@@ -30,7 +30,7 @@ const Destinations = () => {
         <div style={{
           backgroundImage: `url(${Paris})`, backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
-          borderRadius: '0.5rem', width: '25%', textAlign: 'left', height: '100%',
+          borderRadius: '0.5rem', width: '25%', textAlign: 'left',
           padding: '1%'
         }}>
           <div style={detailsTag}>

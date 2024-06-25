@@ -3,6 +3,7 @@ import Navbar from '../../../Components/Navbar'
 import PlaneTransport from '../../../Assets/PlaneTransport.png'
 import FlightBooking from './FlightBooking'
 import Destinations from './Destinations'
+import Footer from '../../../Components/Footer'
 
 const Flights = () => {
   const upperDiv = {
@@ -22,6 +23,7 @@ const Flights = () => {
       </div>
       <FlightBooking />
       <Destinations />
+      <Footer />
     </div>
   )
 }

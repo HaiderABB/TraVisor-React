@@ -156,7 +156,7 @@ const FlightBooking = () => {
               sx={{ color: 'black' }}
             >
               <MenuItem style={{ color: 'black' }} value={1}>One Way</MenuItem>
-              <MenuItem style={{ color: 'black' }} value={2}>Two Way</MenuItem>
+              <MenuItem style={{ color: 'black' }} value={2}>Round Trip</MenuItem>
             </Select>
           </FormControl>
           <FormControl sx={{

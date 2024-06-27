@@ -1,6 +1,6 @@
 import React from 'react'
 import profilePhoto from '../Assets/profilePhoto.png'
-import SearchLogo from '../Assets/SearchLogo.png'
+import { CiSearch } from 'react-icons/ci'
 import TraVisor from '../Assets/TraVisor.png'
 
 const Navbar = () => {
@@ -19,6 +19,7 @@ const Navbar = () => {
       </div>
       <div className='profile-Photo-Div'>
         {/* <img src={SearchLogo} style={{ height: '2rem', alignSelf: 'center' }} alt=''></img> */}
+        <CiSearch style={{ fontSize: '2rem', alignSelf: 'center' }} />
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}><img src={profilePhoto} style={{ height: '2.5rem' }} alt=''>
         </img>
           <p>Your Profile</p>

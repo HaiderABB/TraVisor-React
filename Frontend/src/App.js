@@ -9,6 +9,7 @@ import SetNewPassword from './Pages/Auth/SetNewPassword'
 import Navbar from './Components/Navbar';
 import Flights from './Pages/Menu/Flights/Flights';
 import Hotels from './Pages/Menu/Hotels/Hotels'
+import Restaurants from './Pages/Menu/Restaurants/Restaurants';
 function App() {
   return (
     <div className="App">
@@ -19,7 +20,8 @@ function App() {
       {/* <SetNewPassword /> */}
       {/* <ResetPassword /> */}
       {/* <Flights /> */}
-      <Hotels />
+      {/* <Hotels /> */}
+      <Restaurants />
     </div>
   );
 }

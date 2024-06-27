@@ -3,6 +3,13 @@ import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import { CiSearch } from "react-icons/ci";
 import Button from '@mui/material/Button';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import Box from '@mui/material/Box';
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+import { IoNavigateSharp } from 'react-icons/io5';
 
 
 const SearchRestaurants = () => {
@@ -60,6 +67,9 @@ const SearchRestaurants = () => {
       },
     },
   };
+
+  const inputDivsCalender = { width: '80%', display: 'flex', alignSelf: 'center', paddingTop: '3%', gap: '1.5rem', placeContent: 'center', };
+
   return (
     <div style={middleDiv}>
       <div style={{ display: 'flex', alignSelf: 'center', gap: '2rem' }}><p style={{ color: '#112211', fontSize: '1.5rem', fontWeight: '600', alignSelf: 'center' }}>Search Destination</p>
@@ -97,6 +107,97 @@ const SearchRestaurants = () => {
         <Button onClick={() => HandleType(8)} style={typeDisabled[8] ? typeButtonEnabled : typeButtonDisabled} variant="contained">Californian</Button>
         <Button onClick={() => HandleType(9)} style={typeDisabled[9] ? typeButtonEnabled : typeButtonDisabled} variant="contained">Italian</Button>
       </div>
+      <div style={inputDivsCalender} >
+        <div style={{ width: '40%' }}>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <Box
+              sx={{
+                width: '100%',
+                color: 'black', '& .MuiOutlinedInput-root': {
+                  '& fieldset': {
+                    borderColor: 'black',
+                  },
+                  '&:hover fieldset': {
+                    borderColor: 'black',
+                  },
+                  '&.Mui-focused fieldset': {
+                    borderColor: 'black',
+                  }, '& .MuiInputLabel-root': {
+                    color: 'black',
+                  },
+                  '& .MuiSelect-icon': {
+                    color: 'black',
+                  },
+                  '& input': {
+                    color: 'black',
+                  },
+                  '& .MuiInputBase-input::placeholder': {
+                    color: 'black',
+                    opacity: 1,
+                  },
+                  '& .MuiSvgIcon-root': {
+                    color: 'black',
+                  },
+                  '& .MuiIconButton-root': {
+                    color: 'black',
+                  },
+                },
+              }}
+            >
+              <DatePicker
+                label='Date'
+                sx={{ width: '100%' }}
+                slotProps={{
+                  field: { clearable: true },
+                }}
+              />
+            </Box>
+          </LocalizationProvider>
+        </div>
+        <div style={{ width: '40%' }}>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <Box sx={{
+              width: '100%', paddingTop: '0',
+              color: 'black', '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: 'black',
+                },
+                '&:hover fieldset': {
+                  borderColor: 'black',
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: 'black',
+                }, '& .MuiInputLabel-root': {
+                  color: 'black',
+                },
+                '& .MuiSelect-icon': {
+                  color: 'black',
+                },
+                '& input': {
+                  color: 'black',
+                },
+                '& .MuiInputBase-input::placeholder': {
+                  color: 'black',
+                  opacity: 1,
+                },
+                '& .MuiSvgIcon-root': {
+                  color: 'black',
+                },
+                '& .MuiIconButton-root': {
+                  color: 'black',
+                },
+              },
+            }}><DemoContainer sx={{ paddingTop: '0' }} components={['TimePicker']}>
+                <TimePicker slotProps={{
+                  field: { clearable: true },
+                }} sx={{ width: '100%' }} label="Time" />
+              </DemoContainer></Box>
+          </LocalizationProvider>
+        </div>
+      </div>
+      <Button style={{ width: '20%', height: '3rem', backgroundColor: '#8DD3BB', color: 'black', textTransform: 'none', fontSize: '1rem', fontFamily: 'Montserrat', alignSelf: 'center', marginTop: '2rem' }} variant="contained" startIcon={<IoNavigateSharp />}>
+        Search
+      </Button>
     </div>
   )
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../../../Components/Navbar'
 import Burger from '../../../Assets/Burger.png'
 import SearchRestaurants from './SearchRestaurants'
+import Suggested from './Suggested'
 
 const Restaurants = () => {
 
@@ -23,6 +24,7 @@ const Restaurants = () => {
         </div>
       </div>
       <SearchRestaurants />
+      <Suggested />
     </div>
   )
 }

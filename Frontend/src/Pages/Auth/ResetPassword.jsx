@@ -19,7 +19,7 @@ const SignUp = () => {
   const whiteDiv = {
     backgroundColor: "white",
     padding: '2.5rem',
-    width: '17rem', display: 'flex', flexDirection: 'column',
+    width: '30%', display: 'flex', flexDirection: 'column',
     borderRadius: '1rem',
     gap: '0.5rem'
 

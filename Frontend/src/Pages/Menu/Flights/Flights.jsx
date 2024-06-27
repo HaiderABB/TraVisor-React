@@ -3,6 +3,7 @@ import Navbar from '../../../Components/Navbar'
 import PlaneTransport from '../../../Assets/PlaneTransport.png'
 import FlightBooking from './FlightBooking'
 import Destinations from './Destinations'
+import Footer from '../../../Components/Footer'
 
 const Flights = () => {
   const upperDiv = {
@@ -16,12 +17,13 @@ const Flights = () => {
     <div>
       <Navbar />
       <div style={upperDiv}>
-        <div style={{ paddingTop: '18rem', paddingBottom: '2.5rem' }}><p style={{ color: '#FFFFFF', fontWeight: '700', fontFamily: 'Montserrat', textAlign: 'left', marginLeft: '5rem', fontSize: '2rem' }}>TRANSPORTATION</p>
-          <p style={{ color: '#FFFFFF', textAlign: 'left', marginLeft: '5rem' }}>Special offers to suit your plan</p>
+        <div style={{ paddingTop: '25%', paddingBottom: '3%' }}><p style={{ color: '#FFFFFF', fontWeight: '700', fontFamily: 'Montserrat', textAlign: 'left', marginLeft: '8%', fontSize: '2rem' }}>TRANSPORTATION</p>
+          <p style={{ color: '#FFFFFF', textAlign: 'left', marginLeft: '8%' }}>Special offers to suit your plan</p>
         </div>
       </div>
       <FlightBooking />
       <Destinations />
+      <Footer />
     </div>
   )
 }

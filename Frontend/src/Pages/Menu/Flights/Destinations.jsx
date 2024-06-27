@@ -22,9 +22,14 @@ const Destinations = () => {
 
   return (
     <div style={mainStyles}>
-      <div style={{ textAlign: 'left', paddingLeft: '2.5rem', paddingTop: '1rem' }}>
-        <p style={{ fontWeight: 'bold', color: '#276968' }}>Destinations</p>
-        <p style={{ color: '#051721', fontWeight: 'bold', fontSize: '1.5rem' }}>Discover your love</p>
+      <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '2%' }}>
+        <div style={{ textAlign: 'left' }}>
+          <p style={{ fontWeight: 'bold', color: '#276968' }}>Destinations</p>
+          <p style={{ color: '#051721', fontWeight: 'bold', fontSize: '1.5rem' }}>Discover your love</p>
+        </div>
+        <div>
+          <Button style={{ textTransform: 'none', color: '#276968', borderColor: '#276968' }} variant="outlined">See All</Button>
+        </div>
       </div>
       <div style={{ display: 'flex', padding: '2rem', paddingLeft: '2.5rem', gap: '1rem' }}>
         <div style={{

@@ -3,6 +3,8 @@ import Navbar from '../../../Components/Navbar'
 import Hotel from '../../../Assets/Hotels.png'
 import HotelBooking from './HotelBooking'
 import RecentSearches from './RecentSearches'
+import Discover from './Discover'
+import Footer from '../../../Components/Footer'
 
 const Hotels = () => {
 
@@ -25,6 +27,8 @@ const Hotels = () => {
       </div>
       <HotelBooking />
       <RecentSearches />
+      <Discover />
+      <Footer />
     </div>
   )
 }

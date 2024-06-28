@@ -32,8 +32,6 @@ const NoArrowsOutlinedInput = styled(OutlinedInput)(({ theme }) => ({
 
 const HotelBooking = () => {
 
-
-
   const middleDiv = {
     backgroundColor: '#FAFBFC',
     display: 'flex',

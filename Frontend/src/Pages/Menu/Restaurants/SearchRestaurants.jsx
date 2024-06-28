@@ -76,14 +76,13 @@ const SearchRestaurants = () => {
         <TextField
           id="outlined-basic"
           variant="outlined"
-          style={{ boxShadow: '0 0 2rem 0 rgba(0, 0, 0, 0.1)' }}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
                 <CiSearch style={{ color: 'black', fontSize: '1.5rem' }} />
               </InputAdornment>
             ),
-            style: { color: 'black' },
+            style: { color: 'black', textAlign: 'center' },
           }}
           sx={searchBarStyle}
         />

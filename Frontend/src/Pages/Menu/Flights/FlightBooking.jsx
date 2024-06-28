@@ -49,7 +49,7 @@ const FlightBooking = () => {
     backgroundColor: '#FAFBFC',
     display: 'flex',
     flexDirection: 'column',
-    padding: '1.5rem'
+    padding: '2%'
   }
 
   const [trip, setTrip] = useState('');

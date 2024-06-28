@@ -26,34 +26,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.navbar {
-  background-color: #1E516E;
-  display: flex;
-  flex-direction: row;
-  font-family: 'Karla', sans-serif;
-  color: #FFFFFF;
-  padding: 1rem;
-  font-size: 1rem;
-}
-
-.logo-div {
-  align-self: center;
-}
-
-.navbar-options {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  gap: 3rem;
-  padding: 0.3rem;
-}
-
-.profile-Photo-Div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-
-}

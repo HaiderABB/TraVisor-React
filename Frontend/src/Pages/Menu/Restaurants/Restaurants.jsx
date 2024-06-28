@@ -3,6 +3,8 @@ import Navbar from '../../../Components/Navbar'
 import Burger from '../../../Assets/Burger.png'
 import SearchRestaurants from './SearchRestaurants'
 import Suggested from './Suggested'
+import Footer from '../../../Components/Footer'
+
 
 const Restaurants = () => {
 
@@ -25,6 +27,7 @@ const Restaurants = () => {
       </div>
       <SearchRestaurants />
       <Suggested />
+      <Footer />
     </div>
   )
 }

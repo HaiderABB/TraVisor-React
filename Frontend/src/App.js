@@ -14,15 +14,15 @@ import Guides from './Pages/Menu/Guides/Guides';
 function App() {
   return (
     <div className="App">
-      {/* <SignUp />
-      <LogIn />
-      <ForgotPassword />
-      <CheckEmail />
-      <SetNewPassword />
-      <ResetPassword />
-      <Flights />
-      <Hotels />
-      <Restaurants /> */}
+      {/* <SignUp /> */}
+      {/* <LogIn /> */}
+      {/* <ForgotPassword /> */}
+      {/* <CheckEmail /> */}
+      {/* <SetNewPassword /> */}
+      {/* <ResetPassword /> */}
+      {/* <Flights /> */}
+      {/* <Hotels /> */}
+      {/* <Restaurants /> */}
       <Guides />
     </div>
   );

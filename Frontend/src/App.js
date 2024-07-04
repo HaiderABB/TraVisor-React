@@ -20,10 +20,10 @@ function App() {
       {/* <CheckEmail /> */}
       {/* <SetNewPassword /> */}
       {/* <ResetPassword /> */}
-      <Flights />
+      {/* <Flights /> */}
       {/* <Hotels /> */}
       {/* <Restaurants /> */}
-      {/* <Guides /> */}
+      <Guides />
     </div>
   );
 }

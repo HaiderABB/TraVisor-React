@@ -71,7 +71,7 @@ const FlightBooking = () => {
     setTrip(event.target.value);
   };
 
-  const inputDivs = { width: '80%', display: 'flex', alignSelf: 'center', padding: '1rem', gap: '0.5rem', placeContent: 'center', };
+  const inputDivs = { width: '80%', display: 'flex', alignSelf: 'center', padding: '1rem', gap: '0.5rem', placeContent: 'center', marginTop: '1%' };
 
   const inputDivsCalender = { width: '80%', display: 'flex', alignSelf: 'center', padding: '1rem', gap: '1.5rem', placeContent: 'center', };
 
@@ -172,7 +172,7 @@ const FlightBooking = () => {
               <MenuItem style={{ color: 'black' }} value={2}>Round Trip</MenuItem>
             </Select>
           </FormControl>
-          <FormControl sx={{
+          {/* <FormControl sx={{
             m: 1, width: '40%', '& .MuiOutlinedInput-root': {
               '& fieldset': {
                 borderColor: 'black',
@@ -198,10 +198,8 @@ const FlightBooking = () => {
               }
               label="Passenger"
             />
-          </FormControl>
-        </div>
-        <div style={inputDivsCalender} >
-          <div style={{ width: '40%' }}>
+          </FormControl> */}
+          <div style={{ width: '40%', alignContent: 'center' }}>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <Box
                 sx={{
@@ -247,7 +245,10 @@ const FlightBooking = () => {
               </Box>
             </LocalizationProvider>
           </div>
-          <div style={{ width: '40%' }}>
+        </div>
+        <div style={inputDivsCalender} >
+
+          {false ? <div style={{ width: '40%' }}>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <Box
                 sx={{
@@ -291,9 +292,10 @@ const FlightBooking = () => {
                 />
               </Box>
             </LocalizationProvider>
-          </div>
+          </div> : null}
+
         </div>
-        <div style={{ display: 'flex', alignSelf: 'center', width: '50%', paddingTop: '1.5rem', justifyContent: 'space-between', gap: '1rem' }}>
+        <div style={{ display: 'flex', alignSelf: 'center', width: '50%', paddingTop: '1rem', justifyContent: 'space-between', gap: '1rem' }}>
           <Button onClick={() => disabledButton(0)} style={disabled[0] ? buttonDisabled : buttonEnabled} variant="contained">Economy</Button>
           <Button onClick={() => disabledButton(1)} style={disabled[1] ? buttonDisabled : buttonEnabled} variant="contained">Business</Button>
           <Button onClick={() => disabledButton(2)} style={disabled[2] ? buttonDisabled : buttonEnabled} variant="contained">First Class</Button>

@@ -68,7 +68,7 @@ const Destinations = () => {
           padding: '1%'
         }}>
           <div style={detailsTag}>
-            <p style={detailsName}>Paris</p>
+            <p style={detailsName}>London</p>
             <div style={detailsCost}>
               <p>An Amazing Journey</p>
               <p>$ 350</p>
@@ -82,7 +82,7 @@ const Destinations = () => {
           padding: '1%'
         }}>
           <div style={detailsTag}>
-            <p style={detailsName}>Paris</p>
+            <p style={detailsName}>Sydney</p>
             <div style={detailsCost}>
               <p>An Amazing Journey</p>
               <p>$ 300</p>
@@ -100,7 +100,7 @@ const Destinations = () => {
           padding: '1%'
         }}>
           <div style={detailsTag}>
-            <p style={detailsName}>Paris</p>
+            <p style={detailsName}>Tahiti</p>
             <div style={detailsCost}>
               <p>An Amazing Journey</p>
               <p>$ 200</p>
@@ -115,7 +115,7 @@ const Destinations = () => {
           padding: '1%'
         }}>
           <div style={detailsTag}>
-            <p style={detailsName}>Bora Bora</p>
+            <p style={detailsName}>Rome</p>
             <div style={detailsCost}>
               <p>An Amazing Journey</p>
               <p>$ 230</p>

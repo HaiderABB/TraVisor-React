@@ -23,25 +23,39 @@ const FlightBooking = () => {
   const [TripHandler, setTripHandler] = useState('');
   const [TripHandleBool, setTripHandleBool] = useState(false);
   const [Date, setDate] = useState(dayjs());
+  const [From, setFrom] = useState('');
+  const [To, setTo] = useState('');
 
+  const HandleFrom = (event) => {
+    const value = event.target.value;
+    setFrom(value);
+    // console.log(From);
+  }
+
+  const HandleTo = (event) => {
+    const value = event.target.value;
+    setTo(value);
+    // console.log(From);
+    // console.log(To);
+  }
 
   const HandleTripChange = (event) => {
 
     const value = event.target.value;
     setTripHandler(value);
-    console.log(value);
+    // console.log(value);
     if (value === 'OneWay') {
       setTripHandleBool(false)
-      console.log('I set the value to false')
+      // console.log('I set the value to false')
     }
     else if (value === 'TwoWay') {
       setTripHandleBool(true);
-      console.log('I set the value to true')
+      // console.log('I set the value to true')
     }
 
   }
 
-  const disabledButton = (index) => {
+  const HandleDisabledButton = (index) => {
 
     const tempDisabled = disabled.map((value, i) => {
       if (i !== index) {
@@ -51,16 +65,12 @@ const FlightBooking = () => {
     setDisabled(tempDisabled);
   };
 
-
-
   const handleDate = (event) => {
     setDate(event.target.value);
   }
 
-  const consoleValues = () => {
-    console.log('Hello I am testing this');
-    console.log(Date.format());
-  }
+
+  // Div and Input Styling
 
   const middleDiv = {
     backgroundColor: '#FAFBFC', display: 'flex', flexDirection: 'column', padding: '2%'
@@ -81,178 +91,109 @@ const FlightBooking = () => {
   return (
     <div>
       <div style={middleDiv}>
-        <p style={{ color: '#112211', fontSize: '1.5rem', fontWeight: '600' }}>Where are you flying?</p>
-        <div style={inputDivs}>
-          <FormControl sx={{
-            m: 1, width: '40%', '& .MuiOutlinedInput-root': {
-              '& fieldset': {
-                borderColor: 'black',
-              },
-              '&:hover fieldset': {
-                borderColor: 'black',
-              },
-              '&.Mui-focused fieldset': {
-                borderColor: 'black',
-              },
-            },
-          }} variant="outlined">
-            <InputLabel style={{ color: 'black' }} >From</InputLabel>
-            <OutlinedInput
-              style={{ color: 'black' }}
-              id="outlined-adornment-password"
-              type={'text'}
-              endAdornment={
-                <InputAdornment position="end">
-                  <GoArrowSwitch style={{ color: 'black' }}></GoArrowSwitch>
-                </InputAdornment>
-              }
-              label="From"
-            />
-          </FormControl>
-          <FormControl sx={{
-            m: 1, width: '40%', '& .MuiOutlinedInput-root': {
-              '& fieldset': {
-                borderColor: 'black',
-              },
-              '&:hover fieldset': {
-                borderColor: 'black',
-              },
-              '&.Mui-focused fieldset': {
-                borderColor: 'black',
-              },
-            },
-          }} variant="outlined">
-            <InputLabel style={{ color: 'black' }} >To</InputLabel>
-            <OutlinedInput
-              style={{ color: 'black' }}
-              id="outlined-adornment-password"
-              type={'text'}
-              endAdornment={
-                <InputAdornment position="end">
-                  <GoArrowSwitch style={{ color: 'black' }}></GoArrowSwitch>
-                </InputAdornment>
-              }
-              label="To"
-            />
-          </FormControl>
-        </div>
-        <div style={inputDivs}>
-          <FormControl sx={{
-            alignSelf: 'center',
-            m: 1, width: '40%', '& .MuiOutlinedInput-root': {
-              '& fieldset': {
-                borderColor: 'black',
-              },
-              '&:hover fieldset': {
-                borderColor: 'black',
-              },
-              '&.Mui-focused fieldset': {
-                borderColor: 'black',
-              }, '& .MuiInputLabel-root': {
-                color: 'black',
-              },
-              '& .MuiSelect-icon': {
-                color: 'black',
-              },
-            },
-          }} variant="outlined">
-            <InputLabel style={{ color: 'black' }} id="demo-simple-select-label">Trip</InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              label="Age"
-              style={{ color: 'black' }}
-              sx={{ color: 'black' }}
-              onChange={HandleTripChange}
-              value={TripHandler}
-            >
-              <MenuItem style={{ color: 'black' }} value={'OneWay'}>One Way</MenuItem>
-              <MenuItem style={{ color: 'black' }} value={'TwoWay'}>Round Trip</MenuItem>
-
-            </Select>
-          </FormControl>
-          {/* <FormControl sx={{
-            m: 1, width: '40%', '& .MuiOutlinedInput-root': {
-              '& fieldset': {
-                borderColor: 'black',
-              },
-              '&:hover fieldset': {
-                borderColor: 'black',
-              },
-              '&.Mui-focused fieldset': {
-                borderColor: 'black',
-              },
-            },
-          }} variant="outlined">
-            <InputLabel style={{ color: 'black' }}>Passenger</InputLabel>
-            <NoArrowsOutlinedInput
-              style={{ color: 'black' }}
-              id="outlined-adornment-number"
-              type="number"
-              startAdornment={
-                <InputAdornment style={{ color: 'black' }} position="start"><FiMinus /></InputAdornment>
-              }
-              endAdornment={
-                <InputAdornment style={{ color: 'black' }} position="end"><GoPlus /></InputAdornment>
-              }
-              label="Passenger"
-            />
-          </FormControl> */}
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <Box
-              sx={{
-                m: 1,
-                alignSelf: 'center',
-                width: '40%',
-                color: 'black', '& .MuiOutlinedInput-root': {
-                  '& fieldset': {
-                    borderColor: 'black',
-                  },
-                  '&:hover fieldset': {
-                    borderColor: 'black',
-                  },
-                  '&.Mui-focused fieldset': {
-                    borderColor: 'black',
-                  }, '& .MuiInputLabel-root': {
-                    color: 'black',
-                  },
-                  '& .MuiSelect-icon': {
-                    color: 'black',
-                  },
-                  '& input': {
-                    color: 'black',
-                  },
-                  '& .MuiInputBase-input::placeholder': {
-                    color: 'black',
-                    opacity: 1,
-                  },
-                  '& .MuiSvgIcon-root': {
-                    color: 'black',
-                  },
-                  '& .MuiIconButton-root': {
-                    color: 'black',
-                  },
+        <FormControl>
+          <p style={{ color: '#112211', fontSize: '1.5rem', fontWeight: '600' }}>Where are you flying?</p>
+          <div style={inputDivs}>
+            <FormControl sx={{
+              m: 1, width: '40%', '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: 'black',
                 },
-              }}
-            >
-              <DatePicker
-                label='Departure'
-                sx={{ width: '100%' }}
-                slotProps={{
-                  field: { clearable: true },
-                }}
+                '&:hover fieldset': {
+                  borderColor: 'black',
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: 'black',
+                },
+              },
+            }} variant="outlined">
+              <InputLabel style={{ color: 'black' }} >From</InputLabel>
+              <OutlinedInput
+                style={{ color: 'black' }}
+                id="outlined-adornment-password"
+                type={'text'}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <GoArrowSwitch style={{ color: 'black' }}></GoArrowSwitch>
+                  </InputAdornment>
+                }
+                label="From"
+                value={From}
+                onInput={HandleFrom}
               />
-            </Box>
-          </LocalizationProvider>
+            </FormControl>
+            <FormControl sx={{
+              m: 1, width: '40%', '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: 'black',
+                },
+                '&:hover fieldset': {
+                  borderColor: 'black',
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: 'black',
+                },
+              },
+            }} variant="outlined">
+              <InputLabel style={{ color: 'black' }} >To</InputLabel>
+              <OutlinedInput
+                style={{ color: 'black' }}
+                id="outlined-adornment-password"
+                type={'text'}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <GoArrowSwitch style={{ color: 'black' }}></GoArrowSwitch>
+                  </InputAdornment>
+                }
+                label="To"
+                required
+                value={To}
+                onInput={HandleTo}
+              />
+            </FormControl>
+          </div>
+          <div style={inputDivs}>
+            <FormControl sx={{
+              alignSelf: 'center',
+              m: 1, width: '40%', '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: 'black',
+                },
+                '&:hover fieldset': {
+                  borderColor: 'black',
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: 'black',
+                }, '& .MuiInputLabel-root': {
+                  color: 'black',
+                },
+                '& .MuiSelect-icon': {
+                  color: 'black',
+                },
+              },
+            }} variant="outlined">
+              <InputLabel style={{ color: 'black' }} id="demo-simple-select-label">Trip</InputLabel>
+              <Select
+                required
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                label="Age"
+                style={{ color: 'black' }}
+                sx={{ color: 'black' }}
+                onChange={HandleTripChange}
+                value={TripHandler}
+              >
+                <MenuItem style={{ color: 'black' }} value={'OneWay'}>One Way</MenuItem>
+                <MenuItem style={{ color: 'black' }} value={'TwoWay'}>Round Trip</MenuItem>
 
-        </div>
-        <div style={inputDivsCalender} >
-
-          {TripHandleBool ? <div style={{ width: '40%' }}>
+              </Select>
+            </FormControl>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <Box
                 sx={{
-                  width: '100%',
+                  m: 1,
+                  alignSelf: 'center',
+                  width: '40%',
                   color: 'black', '& .MuiOutlinedInput-root': {
                     '& fieldset': {
                       borderColor: 'black',
@@ -262,7 +203,13 @@ const FlightBooking = () => {
                     },
                     '&.Mui-focused fieldset': {
                       borderColor: 'black',
-                    }, '& input': {
+                    }, '& .MuiInputLabel-root': {
+                      color: 'black',
+                    },
+                    '& .MuiSelect-icon': {
+                      color: 'black',
+                    },
+                    '& input': {
                       color: 'black',
                     },
                     '& .MuiInputBase-input::placeholder': {
@@ -274,35 +221,79 @@ const FlightBooking = () => {
                     },
                     '& .MuiIconButton-root': {
                       color: 'black',
-                    }, '& .MuiFormLabel-root': {
-                      color: 'black',
-                      '&.Mui-focused': {
-                        color: 'black',
-                      },
                     },
                   },
                 }}
               >
                 <DatePicker
-                  label='Return'
-                  sx={{ width: '100%' }}
+                  label='Departure'
+                  sx={{ width: '100%', color: 'black', }}
                   slotProps={{
                     field: { clearable: true },
                   }}
                 />
               </Box>
             </LocalizationProvider>
-          </div> : null}
 
-        </div>
-        <div style={{ display: 'flex', alignSelf: 'center', width: '50%', paddingTop: '1rem', justifyContent: 'space-between', gap: '1rem' }}>
-          <Button onClick={() => disabledButton(0)} style={disabled[0] ? buttonDisabled : buttonEnabled} variant="contained">Economy</Button>
-          <Button onClick={() => disabledButton(1)} style={disabled[1] ? buttonDisabled : buttonEnabled} variant="contained">Business</Button>
-          <Button onClick={() => disabledButton(2)} style={disabled[2] ? buttonDisabled : buttonEnabled} variant="contained">First Class</Button>
-        </div>
-        <Button onClick={consoleValues} type='submit' style={{ width: '20%', height: '3rem', backgroundColor: '#8DD3BB', color: 'black', textTransform: 'none', fontSize: '1rem', fontFamily: 'Montserrat', alignSelf: 'center', marginTop: '2rem' }} variant="contained" startIcon={<IoNavigateSharp />}>
-          Search
-        </Button>
+          </div>
+          <div style={inputDivsCalender} >
+
+            {TripHandleBool ? <div style={{ width: '40%' }}>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <Box
+                  sx={{
+                    width: '100%',
+                    color: 'black', '& .MuiOutlinedInput-root': {
+                      '& fieldset': {
+                        borderColor: 'black',
+                      },
+                      '&:hover fieldset': {
+                        borderColor: 'black',
+                      },
+                      '&.Mui-focused fieldset': {
+                        borderColor: 'black',
+                      }, '& input': {
+                        color: 'black',
+                      },
+                      '& .MuiInputBase-input::placeholder': {
+                        color: 'black',
+                        opacity: 1,
+                      },
+                      '& .MuiSvgIcon-root': {
+                        color: 'black',
+                      },
+                      '& .MuiIconButton-root': {
+                        color: 'black',
+                      }, '& .MuiFormLabel-root': {
+                        color: 'black',
+                        '&.Mui-focused': {
+                          color: 'black',
+                        },
+                      },
+                    },
+                  }}
+                >
+                  <DatePicker
+                    label='Return'
+                    sx={{ width: '100%' }}
+                    slotProps={{
+                      field: { clearable: true },
+                    }}
+                  />
+                </Box>
+              </LocalizationProvider>
+            </div> : null}
+
+          </div>
+          <div style={{ display: 'flex', alignSelf: 'center', width: '50%', paddingTop: '1rem', justifyContent: 'space-between', gap: '1rem' }}>
+            <Button onClick={() => HandleDisabledButton(0)} style={disabled[0] ? buttonDisabled : buttonEnabled} variant="contained">Economy</Button>
+            <Button onClick={() => HandleDisabledButton(1)} style={disabled[1] ? buttonDisabled : buttonEnabled} variant="contained">Business</Button>
+            <Button onClick={() => HandleDisabledButton(2)} style={disabled[2] ? buttonDisabled : buttonEnabled} variant="contained">First Class</Button>
+          </div>
+          <Button type='submit' style={{ width: '20%', height: '3rem', backgroundColor: '#8DD3BB', color: 'black', textTransform: 'none', fontSize: '1rem', fontFamily: 'Montserrat', alignSelf: 'center', marginTop: '2rem' }} variant="contained" startIcon={<IoNavigateSharp />}>
+            Search
+          </Button>
+        </FormControl>
       </div>
     </div >
   )

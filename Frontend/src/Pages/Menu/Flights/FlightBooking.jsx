@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { IoNavigateSharp } from "react-icons/io5";
-
+import dayjs from 'dayjs';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -50,6 +50,19 @@ const FlightBooking = () => {
     display: 'flex',
     flexDirection: 'column',
     padding: '2%'
+  }
+
+  const [Date, setDate] = useState(dayjs());
+  const handleDate = (event) => {
+    setDate(event.target.value);
+  }
+
+  const consoleValues = () => {
+
+
+    console.log('Hello I am testing this');
+    console.log(Date.format());
+
   }
 
   const [trip, setTrip] = useState('');
@@ -225,7 +238,7 @@ const FlightBooking = () => {
                 }}
               >
                 <DatePicker
-                  label='Arrival'
+                  label='Departure'
                   sx={{ width: '100%' }}
                   slotProps={{
                     field: { clearable: true },
@@ -272,7 +285,6 @@ const FlightBooking = () => {
                 <DatePicker
                   label='Return'
                   sx={{ width: '100%' }}
-
                   slotProps={{
                     field: { clearable: true },
                   }}
@@ -286,7 +298,7 @@ const FlightBooking = () => {
           <Button onClick={() => disabledButton(1)} style={disabled[1] ? buttonDisabled : buttonEnabled} variant="contained">Business</Button>
           <Button onClick={() => disabledButton(2)} style={disabled[2] ? buttonDisabled : buttonEnabled} variant="contained">First Class</Button>
         </div>
-        <Button style={{ width: '20%', height: '3rem', backgroundColor: '#8DD3BB', color: 'black', textTransform: 'none', fontSize: '1rem', fontFamily: 'Montserrat', alignSelf: 'center', marginTop: '2rem' }} variant="contained" startIcon={<IoNavigateSharp />}>
+        <Button onClick={consoleValues} type='submit' style={{ width: '20%', height: '3rem', backgroundColor: '#8DD3BB', color: 'black', textTransform: 'none', fontSize: '1rem', fontFamily: 'Montserrat', alignSelf: 'center', marginTop: '2rem' }} variant="contained" startIcon={<IoNavigateSharp />}>
           Search
         </Button>
       </div>

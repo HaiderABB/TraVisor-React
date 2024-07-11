@@ -9,9 +9,6 @@ import FormControl from '@mui/material/FormControl';
 import { GoArrowSwitch } from "react-icons/go";
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
-import { GoPlus } from "react-icons/go";
-import { FiMinus } from "react-icons/fi";
-import { styled } from '@mui/system';
 import Button from '@mui/material/Button';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -19,22 +16,33 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import Box from '@mui/material/Box';
 
 // Custom styled component to remove number input arrows
-const NoArrowsOutlinedInput = styled(OutlinedInput)(({ theme }) => ({
-  '& input[type=number]': {
-    '-moz-appearance': 'textfield', // For Firefox
-    '&::-webkit-outer-spin-button': {
-      '-webkit-appearance': 'none', // For Chrome, Safari, Edge, Opera
-      margin: 0,
-    },
-    '&::-webkit-inner-spin-button': {
-      '-webkit-appearance': 'none', // For Chrome, Safari, Edge, Opera
-      margin: 0,
-    },
-  },
-}));
 
 const FlightBooking = () => {
+
+  const [disabled, setDisabled] = useState([false, true, true]);
+  const [TripHandler, setTripHandler] = useState('');
+  const [TripHandleBool, setTripHandleBool] = useState(false);
+  const [Date, setDate] = useState(dayjs());
+
+
+  const HandleTripChange = (event) => {
+
+    const value = event.target.value;
+    setTripHandler(value);
+    console.log(value);
+    if (value === 'OneWay') {
+      setTripHandleBool(false)
+      console.log('I set the value to false')
+    }
+    else if (value === 'TwoWay') {
+      setTripHandleBool(true);
+      console.log('I set the value to true')
+    }
+
+  }
+
   const disabledButton = (index) => {
+
     const tempDisabled = disabled.map((value, i) => {
       if (i !== index) {
         return value = true;
@@ -43,35 +51,22 @@ const FlightBooking = () => {
     setDisabled(tempDisabled);
   };
 
-  const [disabled, setDisabled] = useState([false, true, true]);
 
-  const middleDiv = {
-    backgroundColor: '#FAFBFC',
-    display: 'flex',
-    flexDirection: 'column',
-    padding: '2%'
-  }
 
-  const [Date, setDate] = useState(dayjs());
   const handleDate = (event) => {
     setDate(event.target.value);
   }
 
   const consoleValues = () => {
-
-
     console.log('Hello I am testing this');
     console.log(Date.format());
-
   }
 
-  const [trip, setTrip] = useState('');
+  const middleDiv = {
+    backgroundColor: '#FAFBFC', display: 'flex', flexDirection: 'column', padding: '2%'
+  }
 
-  const handleChange = (event) => {
-    setTrip(event.target.value);
-  };
-
-  const inputDivs = { width: '80%', display: 'flex', alignSelf: 'center', padding: '1rem', gap: '0.5rem', placeContent: 'center', marginTop: '1%' };
+  const inputDivs = { width: '80%', display: 'flex', alignSelf: 'center', padding: '0.5rem', gap: '0.5rem', placeContent: 'center', marginTop: '1%' };
 
   const inputDivsCalender = { width: '80%', display: 'flex', alignSelf: 'center', padding: '1rem', gap: '1.5rem', placeContent: 'center', };
 
@@ -81,6 +76,8 @@ const FlightBooking = () => {
   const buttonEnabled = {
     width: '45%', backgroundColor: 'black', color: '#D9D9D9', textTransform: 'none', fontSize: '1rem', fontWeight: '500', fontFamily: 'Montserrat'
   };
+
+
   return (
     <div>
       <div style={middleDiv}>
@@ -141,6 +138,7 @@ const FlightBooking = () => {
         </div>
         <div style={inputDivs}>
           <FormControl sx={{
+            alignSelf: 'center',
             m: 1, width: '40%', '& .MuiOutlinedInput-root': {
               '& fieldset': {
                 borderColor: 'black',
@@ -162,14 +160,15 @@ const FlightBooking = () => {
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              value={trip}
               label="Age"
-              onChange={handleChange}
               style={{ color: 'black' }}
               sx={{ color: 'black' }}
+              onChange={HandleTripChange}
+              value={TripHandler}
             >
-              <MenuItem style={{ color: 'black' }} value={1}>One Way</MenuItem>
-              <MenuItem style={{ color: 'black' }} value={2}>Round Trip</MenuItem>
+              <MenuItem style={{ color: 'black' }} value={'OneWay'}>One Way</MenuItem>
+              <MenuItem style={{ color: 'black' }} value={'TwoWay'}>Round Trip</MenuItem>
+
             </Select>
           </FormControl>
           {/* <FormControl sx={{
@@ -199,56 +198,57 @@ const FlightBooking = () => {
               label="Passenger"
             />
           </FormControl> */}
-          <div style={{ width: '40%', alignContent: 'center' }}>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <Box
-                sx={{
-                  width: '100%',
-                  color: 'black', '& .MuiOutlinedInput-root': {
-                    '& fieldset': {
-                      borderColor: 'black',
-                    },
-                    '&:hover fieldset': {
-                      borderColor: 'black',
-                    },
-                    '&.Mui-focused fieldset': {
-                      borderColor: 'black',
-                    }, '& .MuiInputLabel-root': {
-                      color: 'black',
-                    },
-                    '& .MuiSelect-icon': {
-                      color: 'black',
-                    },
-                    '& input': {
-                      color: 'black',
-                    },
-                    '& .MuiInputBase-input::placeholder': {
-                      color: 'black',
-                      opacity: 1,
-                    },
-                    '& .MuiSvgIcon-root': {
-                      color: 'black',
-                    },
-                    '& .MuiIconButton-root': {
-                      color: 'black',
-                    },
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <Box
+              sx={{
+                m: 1,
+                alignSelf: 'center',
+                width: '40%',
+                color: 'black', '& .MuiOutlinedInput-root': {
+                  '& fieldset': {
+                    borderColor: 'black',
                   },
+                  '&:hover fieldset': {
+                    borderColor: 'black',
+                  },
+                  '&.Mui-focused fieldset': {
+                    borderColor: 'black',
+                  }, '& .MuiInputLabel-root': {
+                    color: 'black',
+                  },
+                  '& .MuiSelect-icon': {
+                    color: 'black',
+                  },
+                  '& input': {
+                    color: 'black',
+                  },
+                  '& .MuiInputBase-input::placeholder': {
+                    color: 'black',
+                    opacity: 1,
+                  },
+                  '& .MuiSvgIcon-root': {
+                    color: 'black',
+                  },
+                  '& .MuiIconButton-root': {
+                    color: 'black',
+                  },
+                },
+              }}
+            >
+              <DatePicker
+                label='Departure'
+                sx={{ width: '100%' }}
+                slotProps={{
+                  field: { clearable: true },
                 }}
-              >
-                <DatePicker
-                  label='Departure'
-                  sx={{ width: '100%' }}
-                  slotProps={{
-                    field: { clearable: true },
-                  }}
-                />
-              </Box>
-            </LocalizationProvider>
-          </div>
+              />
+            </Box>
+          </LocalizationProvider>
+
         </div>
         <div style={inputDivsCalender} >
 
-          {false ? <div style={{ width: '40%' }}>
+          {TripHandleBool ? <div style={{ width: '40%' }}>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <Box
                 sx={{
@@ -304,7 +304,7 @@ const FlightBooking = () => {
           Search
         </Button>
       </div>
-    </div>
+    </div >
   )
 }
 

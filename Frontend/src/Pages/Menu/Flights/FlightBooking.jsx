@@ -93,7 +93,7 @@ const FlightBooking = () => {
       <div style={middleDiv}>
         <FormControl>
           <p style={{ color: '#112211', fontSize: '1.5rem', fontWeight: '600' }}>Where are you flying?</p>
-          <div style={inputDivs}>
+          <Box style={inputDivs}>
             <FormControl sx={{
               m: 1, width: '40%', '& .MuiOutlinedInput-root': {
                 '& fieldset': {
@@ -151,8 +151,8 @@ const FlightBooking = () => {
                 onInput={HandleTo}
               />
             </FormControl>
-          </div>
-          <div style={inputDivs}>
+          </Box>
+          <Box style={inputDivs}>
             <FormControl sx={{
               alignSelf: 'center',
               m: 1, width: '40%', '& .MuiOutlinedInput-root': {
@@ -235,10 +235,10 @@ const FlightBooking = () => {
               </Box>
             </LocalizationProvider>
 
-          </div>
-          <div style={inputDivsCalender} >
+          </Box>
+          <Box style={inputDivsCalender} >
 
-            {TripHandleBool ? <div style={{ width: '40%' }}>
+            {TripHandleBool ? <Box style={{ width: '40%' }}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <Box
                   sx={{
@@ -282,9 +282,9 @@ const FlightBooking = () => {
                   />
                 </Box>
               </LocalizationProvider>
-            </div> : null}
+            </Box> : null}
 
-          </div>
+          </Box>
           <div style={{ display: 'flex', alignSelf: 'center', width: '50%', paddingTop: '1rem', justifyContent: 'space-between', gap: '1rem' }}>
             <Button onClick={() => HandleDisabledButton(0)} style={disabled[0] ? buttonDisabled : buttonEnabled} variant="contained">Economy</Button>
             <Button onClick={() => HandleDisabledButton(1)} style={disabled[1] ? buttonDisabled : buttonEnabled} variant="contained">Business</Button>

@@ -22,35 +22,30 @@ const FlightBooking = () => {
   const [disabled, setDisabled] = useState([false, true, true]);
   const [TripHandler, setTripHandler] = useState('');
   const [TripHandleBool, setTripHandleBool] = useState(false);
-  const [Date, setDate] = useState(dayjs());
+  const [DepartureDate, setDepartureDate] = useState(dayjs());
+  const [ReturnDate, setReturnDate] = useState(dayjs());
   const [From, setFrom] = useState('');
   const [To, setTo] = useState('');
 
   const HandleFrom = (event) => {
     const value = event.target.value;
     setFrom(value);
-    // console.log(From);
   }
 
   const HandleTo = (event) => {
     const value = event.target.value;
     setTo(value);
-    // console.log(From);
-    // console.log(To);
   }
 
   const HandleTripChange = (event) => {
 
     const value = event.target.value;
     setTripHandler(value);
-    // console.log(value);
     if (value === 'OneWay') {
       setTripHandleBool(false)
-      // console.log('I set the value to false')
     }
     else if (value === 'TwoWay') {
       setTripHandleBool(true);
-      // console.log('I set the value to true')
     }
 
   }
@@ -65,8 +60,51 @@ const FlightBooking = () => {
     setDisabled(tempDisabled);
   };
 
-  const handleDate = (event) => {
-    setDate(event.target.value);
+  const HandleDepartureDate = (event) => {
+    setDepartureDate(event);
+  }
+
+  const HandleReturnDate = (event) => {
+    setReturnDate(event);
+  }
+
+
+  const ValidateInput = () => {
+    const APIcall = (flag) => {
+      if (flag) {
+        console.log('The API is called')
+      }
+      else {
+        console.log('API is not called')
+      }
+    }
+    const testDeparture = DepartureDate.format('DD MM YYYY')
+    const testCurrent = dayjs().format('DD MM YYYY')
+    if (TripHandler === '') {
+      APIcall(false);
+    }
+    else if (TripHandler === 'OneWay') {
+      console.log('I am in OneWay')
+      if (From !== '' && To !== '' && testDeparture >= testCurrent) {
+        APIcall(true);
+      }
+      else {
+        APIcall(false);
+      }
+    }
+    else if (TripHandler === 'TwoWay') {
+      console.log('I am in TwoWay')
+      const testReturn = ReturnDate.format('DD MM YYYY')
+      if (From !== '' && To !== '' && testDeparture >= testCurrent && testReturn > testCurrent) {
+        APIcall(true);
+      }
+      else {
+        APIcall(false);
+      }
+    }
+    else {
+      APIcall(false);
+    }
   }
 
 
@@ -86,6 +124,7 @@ const FlightBooking = () => {
   const buttonEnabled = {
     width: '45%', backgroundColor: 'black', color: '#D9D9D9', textTransform: 'none', fontSize: '1rem', fontWeight: '500', fontFamily: 'Montserrat'
   };
+
 
 
   return (
@@ -228,9 +267,12 @@ const FlightBooking = () => {
                 <DatePicker
                   label='Departure'
                   sx={{ width: '100%', color: 'black', }}
-                  slotProps={{
-                    field: { clearable: true },
-                  }}
+                  // slotProps={{
+                  //   field: { clearable: true },
+                  // }}
+                  value={DepartureDate}
+                  onChange={HandleDepartureDate}
+                  defaultValue={dayjs()}
                 />
               </Box>
             </LocalizationProvider>
@@ -276,9 +318,9 @@ const FlightBooking = () => {
                   <DatePicker
                     label='Return'
                     sx={{ width: '100%' }}
-                    slotProps={{
-                      field: { clearable: true },
-                    }}
+                    value={ReturnDate}
+                    onChange={HandleReturnDate}
+                    defaultValue={dayjs()}
                   />
                 </Box>
               </LocalizationProvider>
@@ -290,7 +332,7 @@ const FlightBooking = () => {
             <Button onClick={() => HandleDisabledButton(1)} style={disabled[1] ? buttonDisabled : buttonEnabled} variant="contained">Business</Button>
             <Button onClick={() => HandleDisabledButton(2)} style={disabled[2] ? buttonDisabled : buttonEnabled} variant="contained">First Class</Button>
           </div>
-          <Button type='submit' style={{ width: '20%', height: '3rem', backgroundColor: '#8DD3BB', color: 'black', textTransform: 'none', fontSize: '1rem', fontFamily: 'Montserrat', alignSelf: 'center', marginTop: '2rem' }} variant="contained" startIcon={<IoNavigateSharp />}>
+          <Button onClick={ValidateInput} type='submit' style={{ width: '20%', height: '3rem', backgroundColor: '#8DD3BB', color: 'black', textTransform: 'none', fontSize: '1rem', fontFamily: 'Montserrat', alignSelf: 'center', marginTop: '2rem' }} variant="contained" startIcon={<IoNavigateSharp />}>
             Search
           </Button>
         </FormControl>

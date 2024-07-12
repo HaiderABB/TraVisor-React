@@ -1,7 +1,7 @@
 import React from 'react'
-import profilePhoto from '../Assets/profilePhoto.png'
+import profilePhoto from '../../Assets/profilePhoto.png'
 import { CiSearch } from 'react-icons/ci'
-import TraVisor from '../Assets/TraVisor.png'
+import TraVisor from '../../Assets/TraVisor.png'
 
 const Navbar = () => {
 

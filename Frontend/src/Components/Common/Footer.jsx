@@ -3,7 +3,7 @@ import { MdFacebook } from "react-icons/md";
 import { FaTwitter } from "react-icons/fa";
 import { LuInstagram } from "react-icons/lu";
 import { FaYoutube } from "react-icons/fa";
-import TraVisor from '.././Assets/TraVisor.png'
+import TraVisor from '../../Assets/TraVisor.png'
 const Footer = () => {
   const basicFooterStyles = {
     display: 'flex',

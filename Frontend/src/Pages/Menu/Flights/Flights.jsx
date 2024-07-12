@@ -1,9 +1,9 @@
 import React from 'react'
-import Navbar from '../../../Components/Navbar'
+import Navbar from '../../../Components/Common/Navbar'
 import PlaneTransport from '../../../Assets/PlaneTransport.png'
-import FlightBooking from './FlightBooking'
-import Destinations from './Destinations'
-import Footer from '../../../Components/Footer'
+import FlightBooking from '../../../Components/Menu/Flights/FlightBooking'
+import Destinations from '../../../Components/Menu/Flights/Destinations'
+import Footer from '../../../Components/Common/Footer'
 
 const Flights = () => {
   const upperDiv = {

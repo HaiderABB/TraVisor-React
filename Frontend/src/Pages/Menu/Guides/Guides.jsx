@@ -1,9 +1,9 @@
 import React from 'react'
-import Navbar from '../../../Components/Navbar'
-import Footer from '../../../Components/Footer'
+import Navbar from '../../../Components/Common/Navbar'
+import Footer from '../../../Components/Common/Footer'
 import GuidesPic from '../../../Assets/Guides.png'
-import Explore from './Explore'
-import TopGuides from './TopGuides'
+import Explore from '../../../Components/Menu/Guides/Explore'
+import TopGuides from '../../../Components/Menu/Guides/TopGuides'
 
 const Guides = () => {
 

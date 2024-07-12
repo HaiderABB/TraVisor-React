@@ -1,9 +1,9 @@
 import React from 'react'
-import Navbar from '../../../Components/Navbar'
+import Navbar from '../../../Components/Common/Navbar'
 import Burger from '../../../Assets/Burger.png'
-import SearchRestaurants from './SearchRestaurants'
-import Suggested from './Suggested'
-import Footer from '../../../Components/Footer'
+import SearchRestaurants from '../../../Components/Menu/Restaurants/SearchRestaurants'
+import Suggested from '../../../Components/Menu/Restaurants/Suggested'
+import Footer from '../../../Components/Common/Footer'
 
 
 const Restaurants = () => {

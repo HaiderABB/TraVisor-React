@@ -6,7 +6,7 @@ import ForgotPassword from './Pages/Auth/ForgotPassword';
 import CheckEmail from './Pages/Auth/CheckEmail';
 import ResetPassword from './Pages/Auth/ResetPassword';
 import SetNewPassword from './Pages/Auth/SetNewPassword'
-import Navbar from './Components/Navbar';
+import Navbar from './Components/Common/Navbar';
 import Flights from './Pages/Menu/Flights/Flights';
 import Hotels from './Pages/Menu/Hotels/Hotels'
 import Restaurants from './Pages/Menu/Restaurants/Restaurants';
@@ -20,9 +20,9 @@ function App() {
       {/* <CheckEmail /> */}
       {/* <SetNewPassword /> */}
       {/* <ResetPassword /> */}
-      <Flights />
+      {/* <Flights /> */}
       {/* <Hotels /> */}
-      {/* <Restaurants /> */}
+      <Restaurants />
       {/* <Guides /> */}
     </div>
   );

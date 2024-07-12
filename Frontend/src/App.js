@@ -11,20 +11,25 @@ import Flights from './Pages/Menu/Flights/Flights';
 import Hotels from './Pages/Menu/Hotels/Hotels'
 import Restaurants from './Pages/Menu/Restaurants/Restaurants';
 import Guides from './Pages/Menu/Guides/Guides';
+import { Route, Routes } from 'react-router-dom';
+
 function App() {
   return (
-    <div className="App">
-      {/* <SignUp /> */}
-      {/* <LogIn /> */}
-      {/* <ForgotPassword /> */}
-      {/* <CheckEmail /> */}
-      {/* <SetNewPassword /> */}
-      {/* <ResetPassword /> */}
-      <Flights />
-      {/* <Hotels /> */}
-      {/* <Restaurants /> */}
-      {/* <Guides /> */}
-    </div>
+    <>
+      <><Navbar></Navbar></>
+      <Routes>
+        <Route path='/' element={<LogIn />} />
+        <Route path='/SignUp' element={<SignUp />} />
+        <Route path='/ForgotPassword' element={<ForgotPassword />} />
+        <Route path='/CheckEmail' element={<CheckEmail />} />
+        <Route path='/ResetPassword' element={<ResetPassword />} />
+        <Route path='/SetNewPassword' element={<SetNewPassword />} />
+        <Route path='/Flights' element={<Flights />} />
+        <Route path='/Hotels' element={<Hotels />} />
+        <Route path='/Restaurants' element={<Restaurants />} />
+        <Route path='/Guides' element={<Guides />} />
+      </Routes >
+    </>
   );
 }
 export default App;

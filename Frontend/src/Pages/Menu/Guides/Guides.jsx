@@ -19,7 +19,7 @@ const Guides = () => {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div style={upperDiv}>
         <div style={{ paddingTop: '25%', paddingBottom: '3%' }}><p style={{ color: '#FFFFFF', fontWeight: '700', fontFamily: 'Montserrat', textAlign: 'left', marginLeft: '8%', fontSize: '2rem' }}>GUIDES</p>
         </div>

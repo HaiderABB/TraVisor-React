@@ -2,6 +2,7 @@ import React from 'react'
 import profilePhoto from '../../Assets/profilePhoto.png'
 import { CiSearch } from 'react-icons/ci'
 import TraVisor from '../../Assets/TraVisor.png'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
 
@@ -42,12 +43,12 @@ const Navbar = () => {
         <img style={{ width: '6rem' }} src={TraVisor} alt=''></img>
       </div>
       <div style={navbarOptions}>
-        <p>Home</p>
-        <p>Transport</p>
-        <p>Hotels</p>
-        <p>Restaurants</p>
-        <p>Guides</p>
-        <p>About Us</p>
+        <Link><p>Home</p> </Link>
+        <Link to='/Flights' ><p>Flights</p></Link>
+        <Link to='/Hotels'><p>Hotels</p></Link>
+        <Link to='/Restaurants'> <p>Restaurants</p></Link>
+        <Link to='/Guides'><p>Guides</p></Link>
+        <Link> <p>About Us</p></Link>
       </div>
       <div style={PhotoDiv}>
         <CiSearch style={{ fontSize: '2rem', alignSelf: 'center' }} />

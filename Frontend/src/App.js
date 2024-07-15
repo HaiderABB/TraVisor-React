@@ -15,21 +15,20 @@ import { Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
+
     <>
+      <Navbar />
       <Routes>
         <Route path='/' element={<LogIn />} />
         <Route path='/SignUp' element={<SignUp />} />
-        <Route path='/ForgotPassword' element={<ForgotPassword />} />
-        <>
-          <Navbar />
-          <Route path='/CheckEmail' element={<CheckEmail />} />
-          <Route path='/ResetPassword' element={<ResetPassword />} />
-          <Route path='/SetNewPassword' element={<SetNewPassword />} />
-          <Route path='/Flights' element={<Flights />} />
-          <Route path='/Hotels' element={<Hotels />} />
-          <Route path='/Restaurants' element={<Restaurants />} />
-          <Route path='/Guides' element={<Guides />} />
-        </>
+
+        <Route path='/CheckEmail' element={<CheckEmail />} />
+        <Route path='/ResetPassword' element={<ResetPassword />} />
+        <Route path='/SetNewPassword' element={<SetNewPassword />} />
+        <Route path='/Flights' element={<Flights />} />
+        <Route path='/Hotels' element={<Hotels />} />
+        <Route path='/Restaurants' element={<Restaurants />} />
+        <Route path='/Guides' element={<Guides />} />
         <Route path='*' element={<h1>ERRORRR 404 : NOT FOUNDDD</h1>}></Route>
       </Routes >
     </>

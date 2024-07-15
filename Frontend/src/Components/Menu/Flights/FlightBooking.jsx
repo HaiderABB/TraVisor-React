@@ -131,7 +131,7 @@ const FlightBooking = () => {
     <div>
       <div style={middleDiv}>
         <FormControl>
-          <p style={{ color: '#112211', fontSize: '1.5rem', fontWeight: '600' }}>Where are you flying?</p>
+          <p style={{ color: '#112211', fontSize: '1.5rem', fontWeight: '600', alignSelf: 'center' }}>Where are you flying?</p>
           <Box style={inputDivs}>
             <FormControl sx={{
               m: 1, width: '40%', '& .MuiOutlinedInput-root': {

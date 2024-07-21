@@ -24,6 +24,11 @@
   color: white;
 }
 
+.App-logo{ color: #61dafb;align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;}
+
 .App-link {
   color: #61dafb;
 }

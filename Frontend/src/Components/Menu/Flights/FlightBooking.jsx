@@ -52,6 +52,7 @@ const FlightBooking = () => {
 
   const HandleDisabledButton = (index) => {
 
+    // eslint-disable-next-line array-callback-return
     const tempDisabled = disabled.map((value, i) => {
       if (i !== index) {
         return value = true;

@@ -38,7 +38,7 @@ const Navbar = () => {
   };
 
   return (
-    <div style={navbar}>
+    <div className="b" style={navbar}>
       <div style={logoDiv}>
         <img style={{ width: '6rem' }} src={TraVisor} alt=''></img>
       </div>

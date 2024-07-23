@@ -1,7 +1,7 @@
 import React from 'react'
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
-import { CiSearch, CiTextAlignCenter } from "react-icons/ci";
+import { CiSearch } from "react-icons/ci";
 import { Button } from '@mui/material';
 import { IoNavigateSharp } from 'react-icons/io5';
 const Explore = () => {

@@ -82,7 +82,7 @@ const SignUp = () => {
 
     //                                                             Method to handle SnackBar
     else {
-
+      console.log('wrong details')
     }
 
   }

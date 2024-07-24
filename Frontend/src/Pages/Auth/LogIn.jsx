@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react'
 import signUpBg from '../../Assets/signUpBg.png';
 import IconButton from '@mui/material/IconButton';
 import OutlinedInput from '@mui/material/OutlinedInput';
@@ -11,13 +12,6 @@ import { FcGoogle } from "react-icons/fc";
 
 const SignUp = () => {
 
-  const [showPassword, setShowPassword] = React.useState(false);
-
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
-
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
 
   const containerStyle = {
     backgroundImage: `url(${signUpBg})`,
@@ -57,6 +51,16 @@ const SignUp = () => {
     opacity: '60%'
   };
 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <div style={containerStyle}>
       <div style={whiteDiv}>
@@ -68,6 +72,7 @@ const SignUp = () => {
             <OutlinedInput
               placeholder='Enter your email address'
               style={commonInputStyle}
+              onChange={(e) => { setEmail(e.target.value) }}
             />
           </FormControl>
         </div>
@@ -80,6 +85,7 @@ const SignUp = () => {
               id="outlined-adornment-password"
               type={showPassword ? 'password' : 'text'}
               style={commonInputStyle}
+              onChange={(e) => { setPassword(e.target.value) }}
               endAdornment={
                 <InputAdornment position="end">
                   <IconButton
@@ -97,7 +103,7 @@ const SignUp = () => {
         </div>
         <p style={{ color: '#333333', opacity: '60%', fontSize: '0.8rem', textAlign: 'right', marginTop: '0.5rem', marginBottom: '0.5rem' }}>Forgot your password?</p>
         <Button sx={{ textTransform: 'none' }} variant="contained" size="medium" style={{ color: '#FFFFFF', backgroundColor: '#FA8B02', border: 'none', borderRadius: '1.5rem', width: '100%', fontFamily: 'Open Sans' }}>
-          Sign Up
+          Sign In
         </Button>
         <p style={p}>or</p>
         <Button sx={{ textTransform: 'none', borderColor: '#333333' }} size="medium" style={{ borderColor: '#333333', color: '#333333', display: 'flex', borderRadius: '1.5rem', gap: '1rem', border: '0.1rem solid rgba(51, 51, 51, 0.6)' }} variant="outlined" startIcon={<FcGoogle />}>

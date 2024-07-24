@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import signUpBg from '../../Assets/signUpBg.png';
 import IconButton from '@mui/material/IconButton';
 import OutlinedInput from '@mui/material/OutlinedInput';
@@ -9,17 +9,11 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { Button, Checkbox, FormControlLabel } from '@mui/material';
 import { FcGoogle } from "react-icons/fc";
 import { useState } from 'react';
+import { UserSignUp } from '../../API/Service/userSignUp';
 
 const SignUp = () => {
 
-  const [showPassword, setShowPassword] = React.useState(false);
-
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
-
-
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
+  //                                                              Page Styling
 
   const containerStyle = {
     backgroundImage: `url(${signUpBg})`,
@@ -59,6 +53,41 @@ const SignUp = () => {
     opacity: '60%'
   };
 
+  //                                                                      States
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [UserEmail, setEmail] = useState('');
+  const [UserPassword, setPassword] = useState('');
+  const [UserName, setName] = useState('');
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  //                                                              Validate Email Regex
+  const validateEmail = (UserEmail) => {
+    return String(UserEmail)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
+
+  //                                                               Handle SignUp Button
+  const handleSignUp = async () => {
+
+    if (validateEmail(UserEmail) && UserName !== '' && UserPassword !== '') {
+
+      UserSignUp({ name: UserName, email: UserEmail, password: UserPassword })
+      console.log('Registeration successful')
+    }
+
+    //                                                             Method to handle SnackBar
+    else {
+      console.log('wrong details')
+    }
+
+  }
+
+
   return (
     <div style={containerStyle}>
       <div style={whiteDiv}>
@@ -70,6 +99,8 @@ const SignUp = () => {
             <OutlinedInput
               placeholder='Enter your name and surname'
               style={commonInputStyle}
+              value={UserName}
+              onChange={(e) => setName(e.target.value)}
             />
           </FormControl>
         </div>
@@ -80,6 +111,8 @@ const SignUp = () => {
             <OutlinedInput
               placeholder='Enter your email address'
               style={commonInputStyle}
+              onChange={(e) => setEmail(e.target.value)}
+              value={UserEmail}
             />
           </FormControl>
         </div>
@@ -91,13 +124,14 @@ const SignUp = () => {
               placeholder='Enter your password'
               id="outlined-adornment-password"
               type={showPassword ? 'password' : 'text'}
+              onChange={(e) => setPassword(e.target.value)}
+              value={UserPassword}
               style={commonInputStyle}
               endAdornment={
                 <InputAdornment position="end">
                   <IconButton
                     aria-label="toggle password visibility"
                     onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
                     edge="end"
                   >
                     {showPassword ? <VisibilityOff /> : <Visibility />}
@@ -116,7 +150,7 @@ const SignUp = () => {
             </span>
           }
         />
-        <Button sx={{ textTransform: 'none' }} variant="contained" size="medium" style={{ color: '#FFFFFF', backgroundColor: '#FA8B02', border: 'none', borderRadius: '1.5rem', width: '100%', fontFamily: 'Open Sans' }}>
+        <Button sx={{ textTransform: 'none' }} onClick={handleSignUp} variant="contained" size="medium" style={{ color: '#FFFFFF', backgroundColor: '#FA8B02', border: 'none', borderRadius: '1.5rem', width: '100%', fontFamily: 'Open Sans' }}>
           Sign Up
         </Button>
         <p style={p}>or</p>

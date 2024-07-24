@@ -11,13 +11,18 @@ import Flights from './Pages/Menu/Flights/Flights';
 import Hotels from './Pages/Menu/Hotels/Hotels'
 import Restaurants from './Pages/Menu/Restaurants/Restaurants';
 import Guides from './Pages/Menu/Guides/Guides';
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useContext, useState, createContext } from 'react';
+import { ContextProvider } from './Contexts/AppContexts';
+import { AppContext } from './Contexts/AppContexts'
 
 function App() {
-  return (
 
+  const { isLoggedIn, setIsLoggedIn } = useContext(AppContext);
+
+  return (
     <>
-      <Navbar />
+      {isLoggedIn && <Navbar />}
       <Routes>
         <Route path='/' element={<LogIn />} />
         <Route path='/SignUp' element={<SignUp />} />

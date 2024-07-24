@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import signUpBg from '../../Assets/signUpBg.png';
 import IconButton from '@mui/material/IconButton';
 import OutlinedInput from '@mui/material/OutlinedInput';
@@ -11,16 +11,6 @@ import { FcGoogle } from "react-icons/fc";
 import { useState } from 'react';
 
 const SignUp = () => {
-
-  const [showPassword, setShowPassword] = React.useState(false);
-
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
-
-
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
-
   const containerStyle = {
     backgroundImage: `url(${signUpBg})`,
     backgroundSize: "cover",
@@ -59,6 +49,19 @@ const SignUp = () => {
     opacity: '60%'
   };
 
+  const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+
+
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <div style={containerStyle}>
       <div style={whiteDiv}>
@@ -70,6 +73,8 @@ const SignUp = () => {
             <OutlinedInput
               placeholder='Enter your name and surname'
               style={commonInputStyle}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
           </FormControl>
         </div>
@@ -80,6 +85,8 @@ const SignUp = () => {
             <OutlinedInput
               placeholder='Enter your email address'
               style={commonInputStyle}
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
             />
           </FormControl>
         </div>
@@ -91,6 +98,8 @@ const SignUp = () => {
               placeholder='Enter your password'
               id="outlined-adornment-password"
               type={showPassword ? 'password' : 'text'}
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
               style={commonInputStyle}
               endAdornment={
                 <InputAdornment position="end">

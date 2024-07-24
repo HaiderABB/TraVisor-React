@@ -9,8 +9,12 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { Button, Checkbox, FormControlLabel } from '@mui/material';
 import { FcGoogle } from "react-icons/fc";
 import { useState } from 'react';
+import { UserSignUp } from '../../API/Service/userSignUp';
 
 const SignUp = () => {
+
+  //                                                              Page Styling
+
   const containerStyle = {
     backgroundImage: `url(${signUpBg})`,
     backgroundSize: "cover",
@@ -49,18 +53,40 @@ const SignUp = () => {
     opacity: '60%'
   };
 
+  //                                                                      States
+
   const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
-
-
+  const [UserEmail, setEmail] = useState('');
+  const [UserPassword, setPassword] = useState('');
+  const [UserName, setName] = useState('');
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
+  //                                                              Validate Email Regex
+  const validateEmail = (UserEmail) => {
+    return String(UserEmail)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
   };
+
+  //                                                               Handle SignUp Button
+  const handleSignUp = async () => {
+
+    if (validateEmail(UserEmail) && UserName !== '' && UserPassword !== '') {
+
+      UserSignUp({ name: UserName, email: UserEmail, password: UserPassword })
+      console.log('Registeration successful')
+    }
+
+    //                                                             Method to handle SnackBar
+    else {
+
+    }
+
+  }
+
 
   return (
     <div style={containerStyle}>
@@ -73,7 +99,7 @@ const SignUp = () => {
             <OutlinedInput
               placeholder='Enter your name and surname'
               style={commonInputStyle}
-              value={name}
+              value={UserName}
               onChange={(e) => setName(e.target.value)}
             />
           </FormControl>
@@ -86,7 +112,7 @@ const SignUp = () => {
               placeholder='Enter your email address'
               style={commonInputStyle}
               onChange={(e) => setEmail(e.target.value)}
-              value={email}
+              value={UserEmail}
             />
           </FormControl>
         </div>
@@ -99,14 +125,13 @@ const SignUp = () => {
               id="outlined-adornment-password"
               type={showPassword ? 'password' : 'text'}
               onChange={(e) => setPassword(e.target.value)}
-              value={password}
+              value={UserPassword}
               style={commonInputStyle}
               endAdornment={
                 <InputAdornment position="end">
                   <IconButton
                     aria-label="toggle password visibility"
                     onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
                     edge="end"
                   >
                     {showPassword ? <VisibilityOff /> : <Visibility />}
@@ -125,7 +150,7 @@ const SignUp = () => {
             </span>
           }
         />
-        <Button sx={{ textTransform: 'none' }} variant="contained" size="medium" style={{ color: '#FFFFFF', backgroundColor: '#FA8B02', border: 'none', borderRadius: '1.5rem', width: '100%', fontFamily: 'Open Sans' }}>
+        <Button sx={{ textTransform: 'none' }} onClick={handleSignUp} variant="contained" size="medium" style={{ color: '#FFFFFF', backgroundColor: '#FA8B02', border: 'none', borderRadius: '1.5rem', width: '100%', fontFamily: 'Open Sans' }}>
           Sign Up
         </Button>
         <p style={p}>or</p>

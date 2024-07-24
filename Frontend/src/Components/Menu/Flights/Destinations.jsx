@@ -21,7 +21,7 @@ const Destinations = () => {
   const detailsCost = { display: 'flex', paddingLeft: '5%', gap: '20%', fontSize: '1rem' };
 
   return (
-    <div style={mainStyles}>
+    <div className style={mainStyles}>
       <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '2%' }}>
         <div style={{ textAlign: 'left' }}>
           <p style={{ fontWeight: 'bold', color: '#276968' }}>Destinations</p>

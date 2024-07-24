@@ -1,5 +1,4 @@
 import React from 'react'
-import Navbar from '../../../Components/Common/Navbar'
 import Hotel from '../../../Assets/Hotels.png'
 import HotelBooking from '../../../Components/Menu/Hotels/HotelBooking'
 import RecentSearches from '../../../Components/Menu/Hotels/RecentSearches'
@@ -19,7 +18,6 @@ const Hotels = () => {
 
   return (
     <div>
-      {/* <Navbar /> */}
       <div style={upperDiv}>
         <div style={{ paddingTop: '25%', paddingBottom: '3%' }}><p style={{ color: '#FFFFFF', fontWeight: '700', fontFamily: 'Montserrat', textAlign: 'left', marginLeft: '8%', fontSize: '2rem' }}>HOTELS</p>
           <p style={{ color: '#FFFFFF', textAlign: 'left', marginLeft: '8%' }}>Special offers to suit your plan</p>

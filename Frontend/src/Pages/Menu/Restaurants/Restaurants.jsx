@@ -1,5 +1,4 @@
 import React from 'react'
-import Navbar from '../../../Components/Common/Navbar'
 import Burger from '../../../Assets/Burger.png'
 import SearchRestaurants from '../../../Components/Menu/Restaurants/SearchRestaurants'
 import Suggested from '../../../Components/Menu/Restaurants/Suggested'
@@ -19,7 +18,6 @@ const Restaurants = () => {
 
   return (
     <div>
-      {/* <Navbar /> */}
       <div style={upperDiv}>
         <div style={{ paddingTop: '25%', paddingBottom: '3%' }}><p style={{ color: '#FFFFFF', fontWeight: '700', fontFamily: 'Montserrat', textAlign: 'left', marginLeft: '8%', fontSize: '2rem' }}>RESTAURANTS</p>
           <p style={{ color: '#FFFFFF', textAlign: 'left', marginLeft: '8%' }}>Special offers to suit your plan</p>

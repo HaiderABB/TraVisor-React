@@ -8,8 +8,11 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { Button, Checkbox, FormControlLabel } from '@mui/material';
 import { UserSignUp } from '../../API/Service/userSignUp';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import { validateEmail } from '../../Validation/ValidateEmail';
+
+
 
 const SignUp = () => {
 
@@ -61,13 +64,7 @@ const SignUp = () => {
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   //                                                              Validate Email Regex
-  const validateEmail = (UserEmail) => {
-    return String(UserEmail)
-      .toLowerCase()
-      .match(
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      );
-  };
+
 
   //                                                               Handle SignUp Button
   const handleSignUp = async (event) => {
@@ -79,7 +76,7 @@ const SignUp = () => {
       if (SignedUp) {
         toast.success('Signed Up Successfully!', {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -90,7 +87,7 @@ const SignUp = () => {
       } else {
         toast.error('Account Exists Already!', {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -102,7 +99,7 @@ const SignUp = () => {
     } else {
       toast.error('Please fill out all required fields with valid information.', {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -184,7 +181,7 @@ const SignUp = () => {
           </form>
         </div>
 
-        <p style={{ paddingTop: '2%' }}>Already have an account? <span className='hover:underline hover:cursor-pointer' style={{ color: 'orange' }}><a href='http://localhost:3000/'>Log In</a></span></p>
+        <p className=' self-center' style={{ paddingTop: '2%' }}>Already have an account? <span className='hover:underline hover:cursor-pointer' style={{ color: 'orange' }}><a href='http://localhost:3000/'>Log In</a></span></p>
       </div>
     </div>
   );

@@ -8,10 +8,12 @@ import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { Button } from '@mui/material';
-import { FcGoogle } from "react-icons/fc";
+import { validateEmail } from '../../Validation/ValidateEmail';
+import { UserlogIn } from '../../API/Service/userLogIn';
+import { toast } from 'react-toastify';
+
 
 const SignUp = () => {
-
 
   const containerStyle = {
     backgroundImage: `url(${signUpBg})`,
@@ -27,7 +29,7 @@ const SignUp = () => {
 
   const whiteDiv = {
     backgroundColor: "white",
-    padding: '3.5rem',
+    padding: '3rem',
     width: '30%', display: 'flex', flexDirection: 'column',
     borderRadius: '1rem',
     gap: '0.5rem'
@@ -46,14 +48,11 @@ const SignUp = () => {
     height: '2.5rem'  // Common height for all input fields
   }
 
-  const p = {
-    margin: 'auto',
-    opacity: '60%'
-  };
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
+
+  const [UserEmail, setEmail] = useState('');
+  const [UserPassword, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(true);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -61,55 +60,104 @@ const SignUp = () => {
     event.preventDefault();
   };
 
+  const handleSignIn = async (event) => {
+    event.preventDefault();
+
+    if (validateEmail(UserEmail) && UserPassword !== '') {
+      const response = await (UserlogIn({ email: UserEmail, password: UserPassword }))
+      if (response.data.Email && response.data.Password)
+        toast.success('Logged In Successfully', {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      else if (response.data.Email && !response.data.Password) {
+        toast.error('Invalid Password', {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
+      else if (!response.data.Email) {
+        toast.error("You have entered an incorrect email", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
+    }
+
+  }
+
   return (
     <div style={containerStyle}>
       <div style={whiteDiv}>
-        <p style={{ fontWeight: 'bold', fontSize: '1.5rem', alignSelf: 'flex-start', margin: '0' }}>Login to continue</p>
+        <p style={{ fontWeight: 'bold', fontSize: '1.5rem', alignSelf: 'center', margin: '0' }}>Login to continue</p>
 
-        <div style={details}>
-          <p style={{ fontSize: '1rem', alignSelf: 'start', opacity: '60%', fontWeight: '600' }}>Email Address</p>
-          <FormControl sx={{ m: 0, width: '100%' }} variant="outlined">
-            <OutlinedInput
-              placeholder='Enter your email address'
-              style={commonInputStyle}
-              onChange={(e) => { setEmail(e.target.value) }}
-            />
-          </FormControl>
-        </div>
+        <form onSubmit={handleSignIn}>
+          <div style={details}>
 
-        <div style={details}>
-          <p style={{ fontSize: '1rem', alignSelf: 'start', opacity: '60%', fontWeight: '600' }}>Password</p>
-          <FormControl sx={{ m: 0, width: '100%' }} variant="outlined">
-            <OutlinedInput
-              placeholder='Enter your password'
-              id="outlined-adornment-password"
-              type={showPassword ? 'password' : 'text'}
-              style={commonInputStyle}
-              onChange={(e) => { setPassword(e.target.value) }}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                    edge="end"
-                  >
-                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              }
-            />
-          </FormControl>
-        </div>
-        <p style={{ color: '#333333', opacity: '60%', fontSize: '0.8rem', textAlign: 'right', marginTop: '0.5rem', marginBottom: '0.5rem' }}>Forgot your password?</p>
-        <Button sx={{ textTransform: 'none' }} variant="contained" size="medium" style={{ color: '#FFFFFF', backgroundColor: '#FA8B02', border: 'none', borderRadius: '1.5rem', width: '100%', fontFamily: 'Open Sans' }}>
-          Sign In
-        </Button>
-        <p style={p}>or</p>
-        <Button sx={{ textTransform: 'none', borderColor: '#333333' }} size="medium" style={{ borderColor: '#333333', color: '#333333', display: 'flex', borderRadius: '1.5rem', gap: '1rem', border: '0.1rem solid rgba(51, 51, 51, 0.6)' }} variant="outlined" startIcon={<FcGoogle />}>
-          <span style={{ opacity: '60%' }}>Sign Up with Google</span>
-        </Button>
-        <p>Don't have an account? <span style={{ color: 'orange' }}>Sign Up</span></p>
+            <p style={{ fontSize: '1rem', alignSelf: 'start', opacity: '60%', fontWeight: '600' }}>Email Address</p>
+            <FormControl sx={{ m: 0, width: '100%' }} variant="outlined">
+              <OutlinedInput
+                placeholder='Enter your email address'
+                style={commonInputStyle}
+                onChange={(e) => { setEmail(e.target.value) }}
+                required
+              />
+            </FormControl>
+
+            <p style={{ fontSize: '1rem', alignSelf: 'start', opacity: '60%', fontWeight: '600' }}>Password</p>
+            <FormControl sx={{ m: 0, width: '100%' }} variant="outlined">
+              <OutlinedInput
+                placeholder='Enter your password'
+                id="outlined-adornment-password"
+                type={showPassword ? 'password' : 'text'}
+                style={commonInputStyle}
+                onChange={(e) => { setPassword(e.target.value) }}
+                required
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {showPassword ? <Visibility /> : <VisibilityOff />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+              />
+            </FormControl>
+          </div>
+
+          <p style={{ color: '#333333', opacity: '60%', fontSize: '0.8rem', textAlign: 'right', marginTop: '0.5rem', marginBottom: '0.5rem' }}>
+            <a className=' hover:underline hover:cursor-pointer' href='http://localhost:3000/ForgotPassword'>Forgot your password?</a></p>
+          <Button type='submit' sx={{ textTransform: 'none' }} variant="contained" size="medium" style={{ color: '#FFFFFF', backgroundColor: '#FA8B02', border: 'none', borderRadius: '1.5rem', width: '100%', fontFamily: 'Open Sans' }}>
+            Sign In
+          </Button>
+
+        </form>
+
+        <p className=' self-center'>Don't have an account? <span className=' hover:underline hover:cursor-pointer' style={{ color: 'orange' }}><a
+          href='http://localhost:3000/SignUp'>Sign Up</a></span></p>
+
       </div>
     </div >
   );

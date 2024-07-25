@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import signUpBg from '../../Assets/signUpBg.png';
 import IconButton from '@mui/material/IconButton';
 import OutlinedInput from '@mui/material/OutlinedInput';
@@ -9,7 +9,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { Button, Checkbox, FormControlLabel } from '@mui/material';
 import { useState } from 'react';
 import { UserSignUp } from '../../API/Service/userSignUp';
-
+import toasts from '../../Components/Toasts/toasts';
 const SignUp = () => {
 
 
@@ -68,12 +68,19 @@ const SignUp = () => {
   };
 
   //                                                               Handle SignUp Button
-  const handleSignUp = async () => {
+  const handleSignUp = async (event) => {
+
+    event.preventDefault();
 
     if (validateEmail(UserEmail) && UserName !== '' && UserPassword !== '') {
 
-      UserSignUp({ name: UserName, email: UserEmail, password: UserPassword })
-      console.log('Registeration successful')
+      const SignedUp = await UserSignUp({ name: UserName, email: UserEmail, password: UserPassword })
+      console.log(SignedUp)
+      if (SignedUp) {
+        toasts('Successful')
+      } else if (!SignedUp) {
+        toasts('Error')
+      }
     }
 
     //                                                             Method to handle SnackBar
@@ -86,6 +93,7 @@ const SignUp = () => {
 
   return (
     <div style={containerStyle}>
+
       <div style={whiteDiv}>
         <p style={{ fontWeight: 'bold', fontSize: '1.5rem', alignSelf: 'flex-start', margin: '0' }}>Create Account</p>
 
@@ -163,7 +171,7 @@ const SignUp = () => {
           </form>
         </div>
 
-        <p style={{ paddingTop: '2%' }}>Already have an account? <span style={{ color: 'orange' }}>Log In</span></p>
+        <p style={{ paddingTop: '2%' }}>Already have an account? <span className=' hover:underline hover:cursor-pointer' style={{ color: 'orange' }}><a href='http://localhost:3000/'>Log In</a></span></p>
       </div>
 
     </div >

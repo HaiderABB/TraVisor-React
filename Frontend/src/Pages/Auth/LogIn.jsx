@@ -11,6 +11,9 @@ import { Button } from '@mui/material';
 import { validateEmail } from '../../Validation/ValidateEmail';
 import { UserlogIn } from '../../API/Service/userLogIn';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import { AppContext } from '../../Contexts/AppContexts'
+import { useContext } from 'react';
 
 
 const SignUp = () => {
@@ -49,10 +52,11 @@ const SignUp = () => {
   }
 
 
-
+  const { isLoggedIn, setIsLoggedIn } = useContext(AppContext);
   const [UserEmail, setEmail] = useState('');
   const [UserPassword, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(true);
+  const navigate = useNavigate();
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -65,17 +69,10 @@ const SignUp = () => {
 
     if (validateEmail(UserEmail) && UserPassword !== '') {
       const response = await (UserlogIn({ email: UserEmail, password: UserPassword }))
-      if (response.data.Email && response.data.Password)
-        toast.success('Logged In Successfully', {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+      if (response.data.Email && response.data.Password) {
+        setIsLoggedIn(true);
+        navigate('/Flights');
+      }
       else if (response.data.Email && !response.data.Password) {
         toast.error('Invalid Password', {
           position: "top-right",
@@ -111,7 +108,6 @@ const SignUp = () => {
 
         <form onSubmit={handleSignIn}>
           <div style={details}>
-
             <p style={{ fontSize: '1rem', alignSelf: 'start', opacity: '60%', fontWeight: '600' }}>Email Address</p>
             <FormControl sx={{ m: 0, width: '100%' }} variant="outlined">
               <OutlinedInput

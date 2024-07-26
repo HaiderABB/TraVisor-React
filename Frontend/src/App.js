@@ -21,7 +21,7 @@ function App() {
 
   return (
     <>
-      {isLoggedIn && <Navbar />}
+      <Navbar />
       <Routes>
         <Route path='/' element={<LogIn />} />
         <Route path='/SignUp' element={<SignUp />} />

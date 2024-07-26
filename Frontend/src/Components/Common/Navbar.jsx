@@ -17,7 +17,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className="bg-primary flex flex-row font-karla text-white p-4 items-center justify-between">
+    <div className="bg-primary w-full z-10 flex fixed flex-row font-karla text-white p-4 items-center justify-between">
       <div >
         <img className=' w-24 hover:w-30 hover:cursor-pointer' src={TraVisor} alt=''></img>
       </div>

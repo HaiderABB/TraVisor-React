@@ -13,7 +13,6 @@ import Restaurants from './Pages/Menu/Restaurants/Restaurants';
 import Guides from './Pages/Menu/Guides/Guides';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useContext, useState, createContext } from 'react';
-import { ContextProvider } from './Contexts/AppContexts';
 import { AppContext } from './Contexts/AppContexts'
 
 function App() {

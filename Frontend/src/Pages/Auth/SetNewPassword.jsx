@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import signUpBg from '../../Assets/signUpBg.png';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import FormControl from '@mui/material/FormControl';
@@ -9,6 +9,8 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import password from '../../Assets/password.png';
 import IconButton from '@mui/material/IconButton';
 import { IoIosArrowRoundBack } from "react-icons/io";
+import { toast } from 'react-toastify';
+import { UpdatePassword } from '../../API/Service/UpdatePassword';
 
 const SignUp = () => {
 
@@ -55,6 +57,29 @@ const SignUp = () => {
   }
 
 
+  const [newPass, setNewPass] = useState('');
+  const [confirmPass, setConfirmPass] = useState('');
+
+  const handleNewPassword = async (event) => {
+    event.preventDefault();
+
+    if (newPass === confirmPass) {
+      const response = await UpdatePassword({ password: newPass })
+    }
+    else {
+      toast.error('Passwords do not match', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      })
+    }
+
+  }
 
 
   return (
@@ -63,55 +88,57 @@ const SignUp = () => {
         <img src={password} style={{ width: '3rem', alignSelf: 'center', marginTop: '0' }} alt='password logo'></img>
         <p style={{ fontWeight: 'bold', fontSize: '1.5rem', alignSelf: 'center', margin: '0', color: '#333333' }}>Set New Password</p>
         <p style={{ fontSize: '0.8rem', marginTop: '0.5rem', marginBottom: '0.5rem' }}>Your new password must be different from previously used passwords</p>
-        <div style={details}>
-          <p style={{ fontSize: '1rem', alignSelf: 'start', opacity: '60%', fontWeight: '600' }}>New Password</p>
-          <FormControl sx={{ m: 0, width: '100%' }} variant="outlined">
-            <OutlinedInput
-              placeholder='Enter your password'
-              id="outlined-adornment-password"
-              type={showPassword ? 'password' : 'text'}
-              style={commonInputStyle}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                    edge="end"
-                  >
-                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              }
-            />
-          </FormControl>
-        </div>
-        <div style={details}>
-          <p style={{ fontSize: '1rem', alignSelf: 'start', opacity: '60%', fontWeight: '600' }}>Confirm Password</p>
-          <FormControl sx={{ m: 0, width: '100%' }} variant="outlined">
-            <OutlinedInput
-              placeholder='Enter your password'
-              id="outlined-adornment-password"
-              type={showPassword ? 'password' : 'text'}
-              style={commonInputStyle}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                    edge="end"
-                  >
-                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              }
-            />
-          </FormControl>
-        </div>
-        <Button sx={{ textTransform: 'none' }} variant="contained" size="medium" style={{ color: '#FFFFFF', backgroundColor: '#FA8B02', border: 'none', borderRadius: '1.5rem', width: '100%', fontFamily: 'Open Sans', marginTop: '0.6rem' }}>
-          Reset Password
-        </Button>
+        <form onSubmit={handleNewPassword} autoComplete='off'>
+          <div style={details}>
+            <p style={{ fontSize: '1rem', alignSelf: 'start', opacity: '60%', fontWeight: '600' }}>New Password</p>
+            <FormControl sx={{ m: 0, width: '100%' }} variant="outlined">
+              <OutlinedInput
+                placeholder='Enter your password'
+                id="outlined-adornment-password"
+                type={showPassword ? 'password' : 'text'}
+                style={commonInputStyle}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+              />
+            </FormControl>
+          </div>
+          <div style={details}>
+            <p style={{ fontSize: '1rem', alignSelf: 'start', opacity: '60%', fontWeight: '600' }}>Confirm Password</p>
+            <FormControl sx={{ m: 0, width: '100%' }} variant="outlined">
+              <OutlinedInput
+                placeholder='Enter your password'
+                id="outlined-adornment-password"
+                type={showPassword ? 'password' : 'text'}
+                style={commonInputStyle}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+              />
+            </FormControl>
+          </div>
+          <Button type='submit' sx={{ textTransform: 'none' }} variant="contained" size="medium" style={{ color: '#FFFFFF', backgroundColor: '#FA8B02', border: 'none', borderRadius: '1.5rem', width: '100%', fontFamily: 'Open Sans', marginTop: '0.6rem' }}>
+            Reset Password
+          </Button>
+        </form>
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: '0.1rem', color: "#333333", opacity: '60%' }}>
           <IoIosArrowRoundBack size={30} /> <p style={{ fontSize: '0.9rem' }}>Back to Login</p>
         </div>

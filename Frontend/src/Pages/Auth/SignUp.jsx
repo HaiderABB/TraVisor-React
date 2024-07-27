@@ -71,7 +71,7 @@ const SignUp = () => {
     event.preventDefault();
 
     if (validateEmail(UserEmail) && UserName !== '' && UserPassword !== '') {
-      const SignedUp = await UserSignUp({ name: UserName, email: UserEmail, password: UserPassword });
+      const SignedUp = await UserSignUp({ name: UserName, email: UserEmail.toLowerCase(), password: UserPassword });
 
       if (SignedUp) {
         toast.success('Signed Up Successfully!', {

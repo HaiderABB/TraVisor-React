@@ -52,7 +52,7 @@ const SignUp = () => {
     event.preventDefault();
 
     if (validateEmail(UserEmail)) {
-      const response = await ForgotPassword({ email: UserEmail });
+      const response = await ForgotPassword({ email: UserEmail.toLowerCase() });
       if (response) {
         toast.success('Password Reset Email Sent', {
           position: "top-right",

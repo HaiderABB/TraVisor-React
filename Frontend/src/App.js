@@ -33,7 +33,7 @@ function App() {
         <Route path='/Hotels' element={<Hotels />} />
         <Route path='/Restaurants' element={<Restaurants />} />
         <Route path='/Guides' element={<Guides />} />
-        <Route path='*' element={<h1>ERRORRR 404 : NOT FOUNDDD</h1>}></Route>
+        <Route path='*' element={<h1>Error 404: Cheek Maak Dum Dum</h1>}></Route>
       </Routes >
     </>
   );

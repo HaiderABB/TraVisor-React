@@ -70,7 +70,7 @@ const SignUp = () => {
     if (validateEmail(UserEmail) && UserPassword !== '') {
       const response = await (UserlogIn({ email: UserEmail.toLowerCase(), password: UserPassword }))
       if (response.data.Email && response.data.Password) {
-        setIsLoggedIn(true);
+        setIsLoggedIn(!isLoggedIn);
         navigate('/Flights');
       }
       else if (response.data.Email && !response.data.Password) {

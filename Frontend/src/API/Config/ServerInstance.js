@@ -1,8 +1,8 @@
-// src/api/AuthClient.js
+// src/api/ServerInstance.js
 import axios from 'axios';
 
 // Create an Axios instance
-const AuthClient = axios.create({
+const ServerInstance = axios.create({
   baseURL: 'http://localhost:5050/UserAuth',
   headers: {
     'Content-Type': 'application/json',
@@ -10,7 +10,7 @@ const AuthClient = axios.create({
   timeout: 15000, // Request Timeout
 });
 
-AuthClient.interceptors.request.use(
+ServerInstance.interceptors.request.use(
   config => {
     console.log('API Request Sent')
     return config;
@@ -22,7 +22,7 @@ AuthClient.interceptors.request.use(
   }
 );
 
-AuthClient.interceptors.response.use(
+ServerInstance.interceptors.response.use(
   response => {
     console.log('API Response Recieved')
     return response;
@@ -34,4 +34,4 @@ AuthClient.interceptors.response.use(
   }
 );
 
-export default AuthClient;
+export default ServerInstance;

@@ -11,6 +11,7 @@ const Navbar = () => {
 
   // Determine if the navbar should be hidden
   const shouldHideNavbar = hideNavbarPaths.includes(location.pathname);
+  console.log(location.pathname);
 
   if (shouldHideNavbar) {
     return null; // Don't render the navbar

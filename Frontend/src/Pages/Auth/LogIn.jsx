@@ -68,12 +68,12 @@ const SignUp = () => {
     event.preventDefault();
 
     if (validateEmail(UserEmail) && UserPassword !== '') {
-      const response = await (UserlogIn({ email: UserEmail.toLowerCase(), password: UserPassword }))
-      if (response.data.Email && response.data.Password) {
-        setIsLoggedIn(!isLoggedIn);
+      const response = await UserlogIn({ email: UserEmail.toLowerCase(), password: UserPassword })
+      console.log(response);
+      if (response.Email && response.Password) {
         navigate('/Flights');
       }
-      else if (response.data.Email && !response.data.Password) {
+      else if (response.Email && !response.Password) {
         toast.error('Invalid Password', {
           position: "top-right",
           autoClose: 3000,
@@ -85,7 +85,7 @@ const SignUp = () => {
           theme: "light",
         });
       }
-      else if (!response.data.Email) {
+      else if (!response.Email) {
         toast.error("You have entered an incorrect email", {
           position: "top-right",
           autoClose: 3000,

@@ -12,12 +12,12 @@ import Hotels from './Pages/Menu/Hotels/Hotels'
 import Restaurants from './Pages/Menu/Restaurants/Restaurants';
 import Guides from './Pages/Menu/Guides/Guides';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { useContext, useState, createContext } from 'react';
-import { AppContext } from './Contexts/AppContexts'
+// import { useContext, useState, createContext } from 'react';
+// import { AppContext } from './Contexts/AppContexts'
 
 function App() {
 
-  const { isLoggedIn, setIsLoggedIn } = useContext(AppContext);
+  // const { isLoggedIn, setIsLoggedIn } = useContext(AppContext);
 
   return (
     <>

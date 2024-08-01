@@ -12,11 +12,11 @@ import { validateEmail } from '../../Validation/ValidateEmail';
 import { UserlogIn } from '../../API/Service/userLogIn';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-import { AppContext } from '../../Contexts/AppContexts'
 import { useContext } from 'react';
+import { AuthContext } from '../../Contexts/AuthContext';
 
 
-const SignUp = () => {
+const Login = () => {
 
   const containerStyle = {
     backgroundImage: `url(${signUpBg})`,
@@ -53,6 +53,7 @@ const SignUp = () => {
   const [UserEmail, setEmail] = useState('');
   const [UserPassword, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -67,6 +68,7 @@ const SignUp = () => {
     if (validateEmail(UserEmail) && UserPassword !== '') {
       const response = await UserlogIn({ email: UserEmail.toLowerCase(), password: UserPassword })
       if (response.email && response.password) {
+        setIsLoggedIn(true);
         navigate('/Flights');
       }
       else if (response.email && !response.password) {
@@ -166,4 +168,4 @@ const SignUp = () => {
   );
 }
 
-export default SignUp;
+export default Login;

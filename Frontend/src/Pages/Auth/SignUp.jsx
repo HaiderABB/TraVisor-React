@@ -16,8 +16,6 @@ import { validateEmail } from '../../Validation/ValidateEmail';
 
 const SignUp = () => {
 
-
-
   //                                                              Page Styling
 
   const containerStyle = {

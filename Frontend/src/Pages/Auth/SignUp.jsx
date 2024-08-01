@@ -97,7 +97,7 @@ const SignUp = () => {
         });
       }
     } else {
-      toast.error('Please fill out all required fields with valid information.', {
+      toast.error('Invalid Email', {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,

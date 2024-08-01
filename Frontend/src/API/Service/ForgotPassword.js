@@ -3,8 +3,13 @@ import ServerInstance from '../Config/ServerInstance';
 export const ForgotPassword = async (ReqBody) => {
 
   try {
-    const response = await ServerInstance.post('/Forgot', ReqBody)
-    console.log(response.data);
-    return response.data.mail;
-  } catch (err) { console.log(err); }
+    const axiosObject = await ServerInstance.post('/Forgot', ReqBody)
+    return {
+      email: axiosObject.data.mail
+    }
+  } catch (err) {
+    return {
+      email: err.response.data.mail
+    }
+  }
 }

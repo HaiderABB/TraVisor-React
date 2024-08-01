@@ -85,7 +85,6 @@ const FlightBooking = () => {
       APIcall(false);
     }
     else if (TripHandler === 'OneWay') {
-      console.log('I am in OneWay')
       if (From !== '' && To !== '' && testDeparture >= testCurrent) {
         APIcall(true);
       }
@@ -94,7 +93,6 @@ const FlightBooking = () => {
       }
     }
     else if (TripHandler === 'TwoWay') {
-      console.log('I am in TwoWay')
       const testReturn = ReturnDate.format('DD MM YYYY')
       if (From !== '' && To !== '' && testDeparture >= testCurrent && testReturn > testCurrent) {
         APIcall(true);

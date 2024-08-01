@@ -16,8 +16,6 @@ import { validateEmail } from '../../Validation/ValidateEmail';
 
 const SignUp = () => {
 
-
-
   //                                                              Page Styling
 
   const containerStyle = {
@@ -72,7 +70,6 @@ const SignUp = () => {
 
     if (validateEmail(UserEmail) && UserName !== '' && UserPassword !== '') {
       const SignedUp = await UserSignUp({ name: UserName, email: UserEmail.toLowerCase(), password: UserPassword });
-
       if (SignedUp) {
         toast.success('Signed Up Successfully!', {
           position: "top-right",

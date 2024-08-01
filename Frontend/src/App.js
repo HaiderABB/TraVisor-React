@@ -12,6 +12,7 @@ import Hotels from './Pages/Menu/Hotels/Hotels'
 import Restaurants from './Pages/Menu/Restaurants/Restaurants';
 import Guides from './Pages/Menu/Guides/Guides';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ProtectedRoutes from './Pages/Protected/ProtectedRoutes';
 
 function App() {
 
@@ -20,18 +21,48 @@ function App() {
     <>
       <Navbar />
       <Routes>
-        <Route path='/Login' element={<LogIn />} />
-        <Route path='/SignUp' element={<SignUp />} />
-        <Route path='/ForgotPassword' element={<ForgotPassword />} />
-        <Route path='/CheckEmail' element={<CheckEmail />} />
-        <Route path='/ResetPassword' element={<ResetPassword />} />
-        <Route path='/SetNewPassword' element={<SetNewPassword />} />
-        <Route path='/Flights' element={<Flights />} />
-        <Route path='/Hotels' element={<Hotels />} />
-        <Route path='/Restaurants' element={<Restaurants />} />
-        <Route path='/Guides' element={<Guides />} />
-        <Route path='*' element={<h1>Error 404: Cheek Maak Dum Dum</h1>}></Route>
-      </Routes >
+        <Route exact path='/' element={<LogIn />} />
+        <Route exact path='/SignUp' element={<SignUp />} />
+        <Route exact path='/ForgotPassword' element={<ForgotPassword />} />
+        <Route exact path='/CheckEmail' element={<CheckEmail />} />
+        <Route exact path='/ResetPassword' element={<ResetPassword />} />
+        <Route exact path='/SetNewPassword' element={<SetNewPassword />} />
+        {/* <Route exact path='/Flights' element={<ProtectedRoutes children={<Flights />} />} />
+        <Route exact path='/Hotels' element={<ProtectedRoutes children={<Hotels />} />} />
+        <Route exact path='/Restaurants' element={<ProtectedRoutes children={<Restaurants />} />} />
+        <Route exact path='/Guides' element={<ProtectedRoutes children={<Guides />} />} /> */}
+        <Route
+          path='/Flights'
+          element={
+            <ProtectedRoutes>
+              <Flights />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path='/Hotels'
+          element={
+            <ProtectedRoutes>
+              <Hotels />
+            </ProtectedRoutes>
+          }
+        /><Route
+          path='/Restaurants'
+          element={
+            <ProtectedRoutes>
+              <Restaurants />
+            </ProtectedRoutes>
+          }
+        /><Route
+          path='/Guides'
+          element={
+            <ProtectedRoutes>
+              <Guides />
+            </ProtectedRoutes>
+          }
+        />
+        <Route exact path='*' element={<h1>Error 404: Page not found</h1>} />
+      </Routes>
     </>
   );
 }

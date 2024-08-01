@@ -53,8 +53,8 @@ const Login = () => {
   const [UserEmail, setEmail] = useState('');
   const [UserPassword, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(true);
-  const [isLoggedIn, setIsLoggedIn] = useContext(AuthContext);
   const navigate = useNavigate();
+  const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -68,7 +68,8 @@ const Login = () => {
     if (validateEmail(UserEmail) && UserPassword !== '') {
       const response = await UserlogIn({ email: UserEmail.toLowerCase(), password: UserPassword })
       if (response.email && response.password) {
-        setIsLoggedIn(true);
+        console.log(isAuthenticated);
+        setIsAuthenticated(true);
         navigate('/Flights');
       }
       else if (response.email && !response.password) {

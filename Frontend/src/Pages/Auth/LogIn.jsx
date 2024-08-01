@@ -50,9 +50,6 @@ const SignUp = () => {
   const commonInputStyle = {
     height: '2.5rem'  // Common height for all input fields
   }
-
-
-  const { isLoggedIn, setIsLoggedIn } = useContext(AppContext);
   const [UserEmail, setEmail] = useState('');
   const [UserPassword, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(true);
@@ -69,11 +66,10 @@ const SignUp = () => {
 
     if (validateEmail(UserEmail) && UserPassword !== '') {
       const response = await UserlogIn({ email: UserEmail.toLowerCase(), password: UserPassword })
-      console.log(response);
-      if (response.Email && response.Password) {
+      if (response.email && response.password) {
         navigate('/Flights');
       }
-      else if (response.Email && !response.Password) {
+      else if (response.email && !response.password) {
         toast.error('Invalid Password', {
           position: "top-right",
           autoClose: 3000,
@@ -85,7 +81,7 @@ const SignUp = () => {
           theme: "light",
         });
       }
-      else if (!response.Email) {
+      else if (!response.email) {
         toast.error("You have entered an incorrect email", {
           position: "top-right",
           autoClose: 3000,
@@ -98,7 +94,18 @@ const SignUp = () => {
         });
       }
     }
-
+    else {
+      toast.error("Please enter correct Email Address", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
   }
 
   return (

@@ -1,26 +1,28 @@
-import React, { useEffect } from 'react'
-import { Navigate, useNavigate } from "react-router-dom"
-import { useContext } from 'react'
-import { AuthContext } from '../../Contexts/AuthContext'
+import { Navigate, Outlet } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../Contexts/AuthContext';
+import { Suspense } from 'react';
 
+const ProtectedRoutes = () => {
+  const { isAuthenticated } = useContext(AuthContext); // Add 'loading' to context
+  const { loading, setIsLoading } = useContext(AuthContext);
 
-const ProtectedRoutes = ({ children }) => {
-
-  const { isAuthenticated } = useContext(AuthContext);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!isAuthenticated) {
-      navigate('/')
+  useEffect(
+    () => {
+      setTimeout(setIsLoading(false), 3000);
+      setIsLoading(true);
     }
-  }, [isAuthenticated, navigate])
+  )
 
   if (!isAuthenticated) {
-    return null
+    return <Navigate to="/"></Navigate>
   }
 
-  return isAuthenticated ? children : null;
+  return (
+    <Suspense fallback={<div>Loading content...</div>}>
+      <Outlet />
+    </Suspense>
+  );
+};
 
-}
-
-export default ProtectedRoutes
+export default ProtectedRoutes;

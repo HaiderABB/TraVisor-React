@@ -21,48 +21,23 @@ function App() {
     <>
       <Navbar />
       <Routes>
+
         <Route exact path='/' element={<LogIn />} />
         <Route exact path='/SignUp' element={<SignUp />} />
         <Route exact path='/ForgotPassword' element={<ForgotPassword />} />
         <Route exact path='/CheckEmail' element={<CheckEmail />} />
         <Route exact path='/ResetPassword' element={<ResetPassword />} />
         <Route exact path='/SetNewPassword' element={<SetNewPassword />} />
-        {/* <Route exact path='/Flights' element={<ProtectedRoutes children={<Flights />} />} />
-        <Route exact path='/Hotels' element={<ProtectedRoutes children={<Hotels />} />} />
-        <Route exact path='/Restaurants' element={<ProtectedRoutes children={<Restaurants />} />} />
-        <Route exact path='/Guides' element={<ProtectedRoutes children={<Guides />} />} /> */}
-        <Route
-          path='/Flights'
-          element={
-            <ProtectedRoutes>
-              <Flights />
-            </ProtectedRoutes>
-          }
-        />
-        <Route
-          path='/Hotels'
-          element={
-            <ProtectedRoutes>
-              <Hotels />
-            </ProtectedRoutes>
-          }
-        /><Route
-          path='/Restaurants'
-          element={
-            <ProtectedRoutes>
-              <Restaurants />
-            </ProtectedRoutes>
-          }
-        /><Route
-          path='/Guides'
-          element={
-            <ProtectedRoutes>
-              <Guides />
-            </ProtectedRoutes>
-          }
-        />
+
+        <Route path='/' element={<ProtectedRoutes />}>
+          <Route path='/Flights' element={<Flights />} />
+          <Route path='/Hotels' element={<Hotels />} />
+          <Route path='/Restaurants' element={<Restaurants />} />
+          <Route path='/Guides' element={<Guides />} />
+        </Route>
+
         <Route exact path='*' element={<h1>Error 404: Page not found</h1>} />
-      </Routes>
+      </Routes >
     </>
   );
 }

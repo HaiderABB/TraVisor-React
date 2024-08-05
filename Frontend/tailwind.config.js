@@ -12,6 +12,7 @@ module.exports = {
       },
       fontFamily: {
         karla: ['Karla', 'sans-serif', 'https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap'],
+        montserratAlternates: ['Montserrat Alternates', 'sans-serif']
       }, width: {
         fill: '-webkit-fill-available'
       }

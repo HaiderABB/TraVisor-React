@@ -1,3 +1,4 @@
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/components/**/*.{js,ts,jsx,tsx}',
@@ -9,6 +10,8 @@ module.exports = {
     extend: {
       colors: {
         'primary': '#1E516E',
+        'secondary': '#276968',
+        'headings': '#051721',
       },
       fontFamily: {
         karla: ['Karla', 'sans-serif', 'https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap'],
@@ -20,4 +23,3 @@ module.exports = {
   },
   plugins: [],
 }
-

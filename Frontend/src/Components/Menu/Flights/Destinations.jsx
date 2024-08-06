@@ -12,26 +12,22 @@ import Button from '@mui/material/Button';
 
 const Destinations = () => {
 
-  const mainStyles = {
-    fontFamily: 'Montserrat'
-  };
-
   const detailsTag = { display: 'flex', flexDirection: 'column', color: '#FFFFFF', fontFamily: 'Montserrat', paddingTop: '94%' };
   const detailsName = { fontWeight: '550', paddingLeft: '5%', fontSize: '1.5rem' };
   const detailsCost = { display: 'flex', paddingLeft: '5%', gap: '20%', fontSize: '1rem' };
 
   return (
-    <div className style={mainStyles}>
-      <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '2%' }}>
-        <div style={{ textAlign: 'left' }}>
-          <p style={{ fontWeight: 'bold', color: '#276968' }}>Destinations</p>
-          <p style={{ color: '#051721', fontWeight: 'bold', fontSize: '1.5rem' }}>Discover your love</p>
+    <div className=' font-montserratAlternates'>
+      <div className=' flex flex-row items-center justify-between p-4'>
+        <div className=' text-left'>
+          <p className=' font-bold text-secondary'>Destinations</p>
+          <p className=' text-headings font-bold text-2xl'>Discover your love</p>
         </div>
         <div>
           <Button style={{ textTransform: 'none', color: '#276968', borderColor: '#276968' }} variant="outlined">See All</Button>
         </div>
       </div>
-      <div style={{ display: 'flex', padding: '2rem', paddingLeft: '2.5rem', gap: '1rem' }}>
+      <div className=' flex p-8 pl-10 gap-4'>
         <div style={{
           backgroundImage: `url(${Paris})`, backgroundSize: "cover",
           backgroundRepeat: "no-repeat",

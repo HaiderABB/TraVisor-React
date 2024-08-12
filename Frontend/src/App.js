@@ -13,6 +13,8 @@ import Restaurants from './Pages/Menu/Restaurants/Restaurants';
 import Guides from './Pages/Menu/Guides/Guides';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import MainPages from './Pages/Protected/MainPages';
+import SetPassword from './Pages/Protected/SetPassword';
+import Spinner from './Components/Common/Spinner';
 
 function App() {
 
@@ -26,14 +28,18 @@ function App() {
         <Route exact path='/SignUp' element={<SignUp />} />
         <Route exact path='/ForgotPassword' element={<ForgotPassword />} />
         <Route exact path='/CheckEmail' element={<CheckEmail />} />
-        <Route exact path='/ResetPassword' element={<ResetPassword />} />
-        <Route exact path='/SetNewPassword' element={<SetNewPassword />} />
+
 
         <Route path='/' element={<MainPages />}>
           <Route path='/Flights' element={<Flights />} />
           <Route path='/Hotels' element={<Hotels />} />
           <Route path='/Restaurants' element={<Restaurants />} />
           <Route path='/Guides' element={<Guides />} />
+        </Route>
+        <Route path='/Spinner' element={<Spinner />} />
+        <Route path='/' element={<SetPassword />}>
+          <Route exact path='/ResetPassword' element={<ResetPassword />} />
+          <Route exact path='/SetNewPassword' element={<SetNewPassword />} />
         </Route>
 
         <Route exact path='*' element={<h1>Error 404: Page not found</h1>} />

@@ -6,6 +6,7 @@ import { Suspense } from 'react';
 const MainPages = () => {
   const { isAuthenticated } = useContext(AuthContext); // Add 'loading' to context
 
+
   if (!isAuthenticated) {
     return <Navigate to="/"></Navigate>
   }

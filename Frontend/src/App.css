@@ -24,10 +24,13 @@
   color: white;
 }
 
-.App-logo{ color: #61dafb;align-items: center;
+.App-logo {
+  color: #61dafb;
+  align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;}
+  color: white;
+}
 
 .App-link {
   color: #61dafb;
@@ -37,7 +40,34 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
+  }
+}
+
+.rotating-plane {
+  animation: rotate360 2s linear infinite;
+}
+
+@keyframes rotate360 {
+  0% {
+    transform: translate(0%, 0px);
+  }
+
+  25% {
+    transform: translate(25vw, 30px);
+  }
+
+  50% {
+    transform: translate(50vw, 0px);
+  }
+
+  75% {
+    transform: translate(75vw, -30px);
+  }
+
+  100% {
+    transform: translate(100vw, 0px);
   }
 }

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import signUpBg from '../../Assets/signUpBg.png';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import FormControl from '@mui/material/FormControl';
@@ -11,10 +11,13 @@ import IconButton from '@mui/material/IconButton';
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { toast } from 'react-toastify';
 import { UpdatePassword } from '../../API/Service/UpdatePassword';
+import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+
 
 const SignUp = () => {
 
-  const [showPassword, setShowPassword] = React.useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -59,12 +62,44 @@ const SignUp = () => {
 
   const [newPass, setNewPass] = useState('');
   const [confirmPass, setConfirmPass] = useState('');
+  const navigate = useNavigate();
+  const useQuery = () => {
+    return new URLSearchParams(useLocation().search);
+  };
+
+  const query = useQuery();
+  const jwt_token = query.get('id');
+
 
   const handleNewPassword = async (event) => {
     event.preventDefault();
-
     if (newPass === confirmPass) {
-      const response = await UpdatePassword({ password: newPass })
+      const response = await UpdatePassword({ password: newPass, jwt_token })
+      if (response) {
+        setTimeout(() => { navigate('/') }, 4000)
+        toast.success('Password Updated Successfully!', {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
+      else {
+        toast.error("Couldn't Update Password", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        })
+      }
     }
     else {
       toast.error('Passwords do not match', {
@@ -81,7 +116,6 @@ const SignUp = () => {
 
   }
 
-
   return (
     <div style={containerStyle}>
       <div style={whiteDiv}>
@@ -95,8 +129,10 @@ const SignUp = () => {
               <OutlinedInput
                 placeholder='Enter your password'
                 id="outlined-adornment-password"
-                type={showPassword ? 'password' : 'text'}
+                type={showPassword ? 'text' : 'password'}
                 style={commonInputStyle}
+                value={newPass}
+                onChange={(e) => setNewPass(e.target.value)}
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton
@@ -118,8 +154,11 @@ const SignUp = () => {
               <OutlinedInput
                 placeholder='Enter your password'
                 id="outlined-adornment-password"
-                type={showPassword ? 'password' : 'text'}
                 style={commonInputStyle}
+                type={showPassword ? 'text' : 'password'}
+
+                value={confirmPass}
+                onChange={(event) => setConfirmPass(event.target.value)}
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton

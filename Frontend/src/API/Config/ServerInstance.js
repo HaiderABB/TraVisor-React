@@ -12,7 +12,6 @@ const ServerInstance = axios.create({
 
 ServerInstance.interceptors.request.use(
   config => {
-    console.log('API Request Sent')
     return config;
   },
   error => {
@@ -24,7 +23,6 @@ ServerInstance.interceptors.request.use(
 
 ServerInstance.interceptors.response.use(
   response => {
-    console.log('API Response Recieved')
     return response;
   },
   error => {

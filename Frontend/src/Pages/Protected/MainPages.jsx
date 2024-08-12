@@ -1,18 +1,10 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { AuthContext } from '../../Contexts/AuthContext';
 import { Suspense } from 'react';
 
-const ProtectedRoutes = () => {
+const MainPages = () => {
   const { isAuthenticated } = useContext(AuthContext); // Add 'loading' to context
-  const { loading, setIsLoading } = useContext(AuthContext);
-
-  useEffect(
-    () => {
-      setTimeout(setIsLoading(false), 3000);
-      setIsLoading(true);
-    }
-  )
 
   if (!isAuthenticated) {
     return <Navigate to="/"></Navigate>
@@ -25,4 +17,4 @@ const ProtectedRoutes = () => {
   );
 };
 
-export default ProtectedRoutes;
+export default MainPages;

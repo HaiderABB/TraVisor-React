@@ -12,7 +12,7 @@ import Hotels from './Pages/Menu/Hotels/Hotels'
 import Restaurants from './Pages/Menu/Restaurants/Restaurants';
 import Guides from './Pages/Menu/Guides/Guides';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import ProtectedRoutes from './Pages/Protected/ProtectedRoutes';
+import MainPages from './Pages/Protected/MainPages';
 
 function App() {
 
@@ -29,7 +29,7 @@ function App() {
         <Route exact path='/ResetPassword' element={<ResetPassword />} />
         <Route exact path='/SetNewPassword' element={<SetNewPassword />} />
 
-        <Route path='/' element={<ProtectedRoutes />}>
+        <Route path='/' element={<MainPages />}>
           <Route path='/Flights' element={<Flights />} />
           <Route path='/Hotels' element={<Hotels />} />
           <Route path='/Restaurants' element={<Restaurants />} />

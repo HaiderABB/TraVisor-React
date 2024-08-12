@@ -53,7 +53,7 @@ const SignUp = () => {
 
     if (validateEmail(UserEmail)) {
       const response = await ForgotPassword({ email: UserEmail.toLowerCase() });
-      if (response.email) {
+      if (response) {
         toast.success('Password Reset Email Sent', {
           position: "top-right",
           autoClose: 3000,
@@ -65,7 +65,7 @@ const SignUp = () => {
           theme: "light",
         });
       }
-      else if (!response.email) {
+      else if (!response) {
         toast.error('Email not found', {
           position: "top-right",
           autoClose: 3000,

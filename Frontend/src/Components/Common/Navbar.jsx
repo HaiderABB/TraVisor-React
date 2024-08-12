@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import profilePhoto from '../../Assets/profilePhoto.png'
 import TraVisor from '../../Assets/TraVisor.png'
 import { Link, useLocation } from 'react-router-dom'
-
+import { AuthContext } from '../../Contexts/AuthContext'
 
 const Navbar = () => {
 
@@ -11,6 +11,7 @@ const Navbar = () => {
 
   // Determine if the navbar should be hidden
   const showNavbar = showNavbarPaths.includes(location.pathname);
+  const { username } = useContext(AuthContext);
 
   if (showNavbar) {
     return (
@@ -29,7 +30,7 @@ const Navbar = () => {
         <div className=' gap-9 items-center flex '>
           <div className='flex items-center gap-2'>
             <img src={profilePhoto} className=' h-10' alt=''></img>
-            <p className=' hover:underline'>Your Profile</p>
+            <p className=' hover:underline'>{username}</p>
           </div>
         </div>
       </div>

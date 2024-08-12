@@ -55,7 +55,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(true);
   const navigate = useNavigate();
   const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
-
+  const { setUsername } = useContext(AuthContext);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const handleMouseDownPassword = (event) => {
@@ -66,10 +66,10 @@ const Login = () => {
     event.preventDefault();
 
     if (validateEmail(UserEmail) && UserPassword !== '') {
-      const response = await UserlogIn({ email: UserEmail.toLowerCase(), password: UserPassword })
+      const response = await UserlogIn({ email: UserEmail.toLowerCase(), password: UserPassword });
       if (response.email && response.password) {
-        console.log(isAuthenticated);
         setIsAuthenticated(true);
+        setUsername(response.username);
         navigate('/Flights');
       }
       else if (response.email && !response.password) {

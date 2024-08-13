@@ -3,12 +3,11 @@ import LeceisterSquareKitchen from '../../../Assets/LeceisterSquareKitchen.jpg'
 import KodLondon from '../../../Assets/KöDLondon.jpg'
 import OrmerMayfair from '../../../Assets/OrmerMayfair.jpg'
 import { CiHeart } from "react-icons/ci";
-import { FaHeart } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
 
 const Suggested = () => {
-  const hotelCost = { backgroundColor: '#380C72', color: '#FFFFFF', width: '20%', textAlign: 'center', height: '2.5rem' };
+  const hotelCost = { backgroundColor: '#380C72', color: '#FFFFFF', textAlign: 'center', height: '2.5rem', display: 'flex' };
 
   const hotelDetails = { display: 'flex', paddingTop: '2%', placeContent: 'space-between' };
 
@@ -40,6 +39,7 @@ const Suggested = () => {
             borderRadius: '0.5rem', width: '100%', textAlign: 'left',
             padding: '3%', display: 'flex', justifyContent: 'space-between', paddingBottom: '40%'
           }}>
+
             <div style={hotelCost}>
               <p style={{ fontFamily: 'Sora' }} >
                 $ <span style={{ fontSize: '1.5rem' }}>270</span></p>

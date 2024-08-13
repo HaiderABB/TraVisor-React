@@ -3,8 +3,17 @@ import ServerInstance from '../Config/ServerInstance';
 export const UpdatePassword = async (ReqBody) => {
   try {
     const axiosObject = await ServerInstance.put('/Forgot/Update', ReqBody)
-    return { password: axiosObject.data.password }
+    return { network: true, password: axiosObject.data.password }
   } catch (err) {
-    return false
+
+    if (err.code === "ERR_NETWORK") {
+      return { network: false, password: false }
+    }
+
+    else {
+      return {
+        network: true, password: false
+      }
+    }
   }
 }

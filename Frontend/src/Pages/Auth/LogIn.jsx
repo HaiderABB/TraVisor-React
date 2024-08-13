@@ -9,7 +9,7 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { Button } from '@mui/material';
 import { validateEmail } from '../../Validation/ValidateEmail';
-import { UserlogIn } from '../../API/Service/userLogIn';
+import { UserlogIn } from '../../API/Service/UserLogIn';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
@@ -67,12 +67,12 @@ const Login = () => {
 
     if (validateEmail(UserEmail) && UserPassword !== '') {
       const response = await UserlogIn({ email: UserEmail.toLowerCase(), password: UserPassword });
-      if (response.email && response.password) {
+      if (response.network && response.email && response.password) {
         setIsAuthenticated(true);
         setUsername(response.username);
         navigate('/Flights');
       }
-      else if (response.email && !response.password) {
+      else if (response.network && response.email && !response.password) {
         toast.error('Invalid Password', {
           position: "top-right",
           autoClose: 3000,
@@ -84,8 +84,20 @@ const Login = () => {
           theme: "light",
         });
       }
-      else if (!response.email) {
+      else if (response.network && !response.email) {
         toast.error("You have entered an incorrect email", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
+      else {
+        toast.error("Network Error", {
           position: "top-right",
           autoClose: 3000,
           hideProgressBar: false,

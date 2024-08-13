@@ -7,7 +7,7 @@ import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { Button, Checkbox, FormControlLabel } from '@mui/material';
-import { UserSignUp } from '../../API/Service/userSignUp';
+import { UserSignUp } from '../../API/Service/UserSignUp';
 import { toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import { validateEmail } from '../../Validation/ValidateEmail';
@@ -70,7 +70,7 @@ const SignUp = () => {
 
     if (validateEmail(UserEmail) && UserName !== '' && UserPassword !== '') {
       const SignedUp = await UserSignUp({ name: UserName, email: UserEmail.toLowerCase(), password: UserPassword });
-      if (SignedUp) {
+      if (SignedUp.network && SignedUp.reg) {
         toast.success('Signed Up Successfully!', {
           position: "top-right",
           autoClose: 3000,
@@ -81,8 +81,20 @@ const SignUp = () => {
           progress: undefined,
           theme: "light",
         });
-      } else {
+      } else if (SignedUp.network && !SignedUp.reg) {
         toast.error('Account Exists Already!', {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
+      else {
+        toast.error('Network Error!', {
           position: "top-right",
           autoClose: 3000,
           hideProgressBar: false,

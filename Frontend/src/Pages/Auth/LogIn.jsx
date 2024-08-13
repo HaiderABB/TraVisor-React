@@ -20,33 +20,7 @@ const Login = () => {
 
   const containerStyle = {
     backgroundImage: `url(${signUpBg})`,
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
-    display: "flex",
-    justifyContent: 'center',
-    alignItems: 'center',
-    fontFamily: 'Open Sans, sans-serif',
-    height: '100vh'
   };
-
-  const whiteDiv = {
-    backgroundColor: "white",
-    padding: '3rem',
-    width: '30%', display: 'flex', flexDirection: 'column',
-    borderRadius: '1rem',
-    gap: '0.5rem'
-
-  }
-
-  const details = {
-    color: '#333333',
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: '1rem',  // Added margin-bottom for spacing between fields
-    margin: '0'
-  }
-
   const commonInputStyle = {
     height: '2.5rem'  // Common height for all input fields
   }
@@ -54,7 +28,7 @@ const Login = () => {
   const [UserPassword, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(true);
   const navigate = useNavigate();
-  const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
+  const { setIsAuthenticated } = useContext(AuthContext);
   const { setUsername } = useContext(AuthContext);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -124,12 +98,13 @@ const Login = () => {
   }
 
   return (
-    <div style={containerStyle}>
-      <div style={whiteDiv}>
+    <div style={containerStyle} className=' bg-cover bg-no-repeat bg-center flex justify-center font-sans h-screen items-center' >
+      <div style={{ width: '30%' }} className=' bg-white p-12 flex flex-col rounded-2xl gap-2'>
         <p style={{ fontWeight: 'bold', fontSize: '1.5rem', alignSelf: 'center', margin: '0' }}>Login to continue</p>
 
         <form onSubmit={handleSignIn}>
-          <div style={details}>
+
+          <div className=' col-[#333333] flex flex-col mb-4 m-0'>
             <p style={{ fontSize: '1rem', alignSelf: 'start', opacity: '60%', fontWeight: '600' }}>Email Address</p>
             <FormControl sx={{ m: 0, width: '100%' }} variant="outlined">
               <OutlinedInput

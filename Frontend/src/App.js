@@ -36,7 +36,6 @@ function App() {
           <Route path='/Restaurants' element={<Restaurants />} />
           <Route path='/Guides' element={<Guides />} />
         </Route>
-        <Route path='/Spinner' element={<Spinner />} />
         <Route path='/' element={<SetPassword />}>
           <Route exact path='/ResetPassword' element={<ResetPassword />} />
           <Route exact path='/SetNewPassword' element={<SetNewPassword />} />

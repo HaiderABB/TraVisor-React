@@ -7,7 +7,8 @@ import Baku from '../../../Assets/Baku.png'
 
 const RecentSearches = () => {
   const mainStyles = {
-    fontFamily: 'Montserrat'
+    fontFamily: 'Montserrat',
+    backgroundColor: '#FAFBFC'
   };
 
   const imgStyles = {

@@ -13,7 +13,7 @@ const Guides = () => {
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     fontFamily: 'Montserrat", sans-serif',
-    width: '100%'
+    width: '100%',
   }
 
   return (

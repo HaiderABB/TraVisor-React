@@ -1,6 +1,5 @@
 import React from 'react'
 import { Button } from '@mui/material';
-import { IoNavigateSharp } from 'react-icons/io5';
 import ExploreParis from '../../../Assets/ExploreParis.png'
 import ExploreTurkey from '../../../Assets/ExploreTurkey.png'
 import ExploreGreece from '../../../Assets/ExploreGreece.png'
@@ -24,7 +23,8 @@ import { CiUser } from "react-icons/ci";
 
 const TopGuides = () => {
   const mainStyles = {
-    fontFamily: 'Montserrat'
+    fontFamily: 'Montserrat',
+    backgroundColor: '#FAFBFC'
   };
 
   const GuidesRow = { display: 'flex', flexDirection: 'row', justifyContent: 'space-between', padding: '2%' };
@@ -32,7 +32,7 @@ const TopGuides = () => {
   const city = { fontFamily: 'Open Sans', paddingTop: '2%', fontWeight: 'bold', fontSize: '1.3rem' };
   const guideDesc = { fontFamily: 'Open Sans', paddingTop: '2%', fontSize: '0.8rem' };
   const guideInfo = { display: 'flex', flexDirection: 'row', gap: '0.4rem', alignItems: 'center', paddingTop: '2%' };
-
+  const icons = { fontSize: '0.9rem' };
   return (
     <div style={mainStyles}>
       <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '2%', paddingBottom: '4%' }}>
@@ -61,10 +61,10 @@ const TopGuides = () => {
                 <FaArrowRightLong style={{ color: '#FA8B02' }} />
               </div>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <CiHeart />
-                <p>100</p>
-                <CiUser />
-                <p>6452</p>
+                <CiHeart style={icons} />
+                <p style={icons}>100</p>
+                <CiUser style={icons} />
+                <p style={icons}>6452</p>
               </div>
             </div>
           </div>
@@ -84,10 +84,10 @@ const TopGuides = () => {
                 <FaArrowRightLong style={{ color: '#FA8B02' }} />
               </div>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <CiHeart />
-                <p>100</p>
-                <CiUser />
-                <p>6452</p>
+                <CiHeart style={icons} />
+                <p style={icons}>100</p>
+                <CiUser style={icons} />
+                <p style={icons}>6452</p>
               </div>
             </div>
           </div>
@@ -108,10 +108,10 @@ const TopGuides = () => {
                 <FaArrowRightLong style={{ color: '#FA8B02' }} />
               </div>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <CiHeart />
-                <p>100</p>
-                <CiUser />
-                <p>6452</p>
+                <CiHeart style={icons} />
+                <p style={icons}>100</p>
+                <CiUser style={icons} />
+                <p style={icons}>6452</p>
               </div>
             </div>
           </div>
@@ -132,10 +132,10 @@ const TopGuides = () => {
                 <FaArrowRightLong style={{ color: '#FA8B02' }} />
               </div>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <CiHeart />
-                <p>100</p>
-                <CiUser />
-                <p>6452</p>
+                <CiHeart style={icons} />
+                <p style={icons}>100</p>
+                <CiUser style={icons} />
+                <p style={icons}>6452</p>
               </div>
             </div>
           </div>
@@ -158,10 +158,10 @@ const TopGuides = () => {
                 <FaArrowRightLong style={{ color: '#FA8B02' }} />
               </div>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <CiHeart />
-                <p>100</p>
-                <CiUser />
-                <p>6452</p>
+                <CiHeart style={icons} />
+                <p style={icons}>100</p>
+                <CiUser style={icons} />
+                <p style={icons}>6452</p>
               </div>
             </div>
           </div>
@@ -181,10 +181,10 @@ const TopGuides = () => {
                 <FaArrowRightLong style={{ color: '#FA8B02' }} />
               </div>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <CiHeart />
-                <p>100</p>
-                <CiUser />
-                <p>6452</p>
+                <CiHeart style={icons} />
+                <p style={icons}>100</p>
+                <CiUser style={icons} />
+                <p style={icons}>6452</p>
               </div>
             </div>
           </div>
@@ -205,10 +205,10 @@ const TopGuides = () => {
                 <FaArrowRightLong style={{ color: '#FA8B02' }} />
               </div>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <CiHeart />
-                <p>100</p>
-                <CiUser />
-                <p>6452</p>
+                <CiHeart style={icons} />
+                <p style={icons}>100</p>
+                <CiUser style={icons} />
+                <p style={icons}>6452</p>
               </div>
             </div>
           </div>
@@ -229,10 +229,10 @@ const TopGuides = () => {
                 <FaArrowRightLong style={{ color: '#FA8B02' }} />
               </div>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <CiHeart />
-                <p>100</p>
-                <CiUser />
-                <p>6452</p>
+                <CiHeart style={icons} />
+                <p style={icons}>100</p>
+                <CiUser style={icons} />
+                <p style={icons}>6452</p>
               </div>
             </div>
           </div>
@@ -256,10 +256,10 @@ const TopGuides = () => {
                 <FaArrowRightLong style={{ color: '#FA8B02' }} />
               </div>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <CiHeart />
-                <p>100</p>
-                <CiUser />
-                <p>6452</p>
+                <CiHeart style={icons} />
+                <p style={icons}>100</p>
+                <CiUser style={icons} />
+                <p style={icons}>6452</p>
               </div>
             </div>
           </div>
@@ -279,10 +279,10 @@ const TopGuides = () => {
                 <FaArrowRightLong style={{ color: '#FA8B02' }} />
               </div>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <CiHeart />
-                <p>100</p>
-                <CiUser />
-                <p>6452</p>
+                <CiHeart style={icons} />
+                <p style={icons}>100</p>
+                <CiUser style={icons} />
+                <p style={icons}>6452</p>
               </div>
             </div>
           </div>
@@ -303,10 +303,10 @@ const TopGuides = () => {
                 <FaArrowRightLong style={{ color: '#FA8B02' }} />
               </div>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <CiHeart />
-                <p>100</p>
-                <CiUser />
-                <p>6452</p>
+                <CiHeart style={icons} />
+                <p style={icons}>100</p>
+                <CiUser style={icons} />
+                <p style={icons}>6452</p>
               </div>
             </div>
           </div>
@@ -327,10 +327,10 @@ const TopGuides = () => {
                 <FaArrowRightLong style={{ color: '#FA8B02' }} />
               </div>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <CiHeart />
-                <p>100</p>
-                <CiUser />
-                <p>6452</p>
+                <CiHeart style={icons} />
+                <p style={icons}>100</p>
+                <CiUser style={icons} />
+                <p style={icons}>6452</p>
               </div>
             </div>
           </div>

@@ -17,7 +17,7 @@ const Destinations = () => {
   const detailsCost = { display: 'flex', paddingLeft: '5%', gap: '20%', fontSize: '1rem' };
 
   return (
-    <div className=' font-montserratAlternates'>
+    <div style={{ backgroundColor: '#FAFBFC' }} className=' font-montserratAlternates'>
       <div className=' flex flex-row items-center justify-between p-4'>
         <div className=' text-left'>
           <p className=' font-bold text-secondary'>Destinations</p>

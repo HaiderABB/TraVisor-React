@@ -53,7 +53,7 @@ const SignUp = () => {
 
     if (validateEmail(UserEmail)) {
       const response = await ForgotPassword({ email: UserEmail.toLowerCase() });
-      if (response) {
+      if (response.network && response.mail) {
         toast.success('Password Reset Email Sent', {
           position: "top-right",
           autoClose: 3000,
@@ -65,8 +65,19 @@ const SignUp = () => {
           theme: "light",
         });
       }
-      else if (!response) {
+      else if (response.network && !response.mail) {
         toast.error('Email not found', {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        })
+      } else {
+        toast.error('Network Error', {
           position: "top-right",
           autoClose: 3000,
           hideProgressBar: false,

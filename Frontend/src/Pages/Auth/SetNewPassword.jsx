@@ -75,8 +75,8 @@ const SignUp = () => {
     event.preventDefault();
     if (newPass === confirmPass) {
       const response = await UpdatePassword({ password: newPass, jwt_token })
-      if (response) {
-        setTimeout(() => { navigate('/') }, 4000)
+      if (response.network && response.password) {
+        setTimeout(() => { navigate('/ResetPassword') }, 4000)
         toast.success('Password Updated Successfully!', {
           position: "top-right",
           autoClose: 3000,
@@ -88,8 +88,20 @@ const SignUp = () => {
           theme: "light",
         });
       }
-      else {
+      else if (response.network && !response.password) {
         toast.error("Couldn't Update Password", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        })
+      }
+      else {
+        toast.error("Network Error", {
           position: "top-right",
           autoClose: 3000,
           hideProgressBar: false,

@@ -23,7 +23,7 @@ const Suggested = () => {
   const mainDiv = { display: 'flex', gap: '1%', padding: '2%' };
 
   return (
-    <div>
+    <div style={{ backgroundColor: '#FAFBFC' }}>
       <div style={{ textAlign: 'left', padding: '2%', paddingBottom: '0' }}>
         <p style={{ color: '#051721', fontWeight: 'bold', fontSize: '1.5rem', fontFamily: 'Montserrat Alternates' }}>Suggested for you
         </p>

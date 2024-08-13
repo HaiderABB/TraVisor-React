@@ -24,7 +24,8 @@ import { CiUser } from "react-icons/ci";
 
 const TopGuides = () => {
   const mainStyles = {
-    fontFamily: 'Montserrat'
+    fontFamily: 'Montserrat',
+    backgroundColor: '#FAFBFC'
   };
 
   const GuidesRow = { display: 'flex', flexDirection: 'row', justifyContent: 'space-between', padding: '2%' };

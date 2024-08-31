@@ -25,6 +25,7 @@ const SearchRestaurants = () => {
       if (i !== index) {
         return value = true;
       }
+      return false
     });
     setDisabled(tempDisabled);
   };

@@ -35,12 +35,12 @@ const Discover = () => {
         </div>
         <div style={{ width: '50%' }}>
           <div style={{ display: 'flex', gap: '1%' }}>
-            <img src={image1}></img>
-            <img src={image2}></img>
+            <img alt="" src={image1}></img>
+            <img alt="" src={image2}></img>
           </div>
           <div style={{ display: 'flex', gap: '1%', marginTop: '1%' }}>
-            <img src={image3}></img>
-            <img src={image4}></img>
+            <img alt="" src={image3}></img>
+            <img alt="" src={image4}></img>
           </div>
         </div>
       </div>

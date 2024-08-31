@@ -36,7 +36,7 @@ const Explore = () => {
 
   return (
     <div style={middleDiv}>
-      <p style={{ color: '#112211', fontSize: '2rem', fontWeight: '600', fontFamily: 'Montserrat' }}>Explore Travel guides</p>
+      <p style={{ color: '#112211', fontSize: '2rem', fontWeight: '600', fontFamily: 'Montserrat', alignSelf: 'center' }}>Explore Travel guides</p>
       <TextField
         placeholder='Search for a destination'
         id="outlined-basic"

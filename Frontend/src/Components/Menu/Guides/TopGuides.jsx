@@ -31,8 +31,10 @@ const TopGuides = () => {
   const infoDiv = { display: 'flex', flexDirection: 'column', textAlign: 'left' };
   const city = { fontFamily: 'Open Sans', paddingTop: '2%', fontWeight: 'bold', fontSize: '1.3rem' };
   const guideDesc = { fontFamily: 'Open Sans', paddingTop: '2%', fontSize: '0.8rem' };
-  const guideInfo = { display: 'flex', flexDirection: 'row', gap: '0.4rem', alignItems: 'center', paddingTop: '2%' };
+  const guideInfo = { fontSize: '0.9rem', display: 'flex', flexDirection: 'row', gap: '0.4rem', alignItems: 'center', paddingTop: '2%' };
   const icons = { fontSize: '0.9rem' };
+  const image = { width: '25%' };
+
   return (
     <div style={mainStyles}>
       <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '2%', paddingBottom: '4%' }}>
@@ -55,7 +57,7 @@ const TopGuides = () => {
             <p style={guideDesc}>Born and raised in Paris</p>
             <div style={{ display: 'flex', justifyContent: 'space-between' }} >
               <div style={guideInfo}>
-                <img src={ParisGuide} alt=''>
+                <img style={image} src={ParisGuide} alt=''>
                 </img>
                 <p style={{ color: '#FA8B02' }}>Lucy A</p>
                 <FaArrowRightLong style={{ color: '#FA8B02' }} />
@@ -78,7 +80,7 @@ const TopGuides = () => {
             <p style={guideDesc}>I made travel vlogs on yout...</p>
             <div style={{ display: 'flex', justifyContent: 'space-between' }} >
               <div style={guideInfo}>
-                <img src={DubaiGuide} alt=''>
+                <img style={image} src={DubaiGuide} alt=''>
                 </img>
                 <p style={{ color: '#FA8B02' }}>Larah M</p>
                 <FaArrowRightLong style={{ color: '#FA8B02' }} />
@@ -102,7 +104,7 @@ const TopGuides = () => {
             <p style={guideDesc}>Enjoy the best days in</p>
             <div style={{ display: 'flex', justifyContent: 'space-between' }} >
               <div style={guideInfo}>
-                <img src={ParisGuide} alt=''>
+                <img style={image} src={ParisGuide} alt=''>
                 </img>
                 <p style={{ color: '#FA8B02' }}>Liana</p>
                 <FaArrowRightLong style={{ color: '#FA8B02' }} />
@@ -126,7 +128,7 @@ const TopGuides = () => {
             <p style={guideDesc}>Born and raised here</p>
             <div style={{ display: 'flex', justifyContent: 'space-between' }} >
               <div style={guideInfo}>
-                <img src={LondonGuide} alt=''>
+                <img style={image} src={LondonGuide} alt=''>
                 </img>
                 <p style={{ color: '#FA8B02' }}>Kate</p>
                 <FaArrowRightLong style={{ color: '#FA8B02' }} />
@@ -152,7 +154,7 @@ const TopGuides = () => {
             <p style={guideDesc}>Born and raised in Paris</p>
             <div style={{ display: 'flex', justifyContent: 'space-between' }} >
               <div style={guideInfo}>
-                <img src={ParisGuide} alt=''>
+                <img style={image} src={ParisGuide} alt=''>
                 </img>
                 <p style={{ color: '#FA8B02' }}>Lucy A</p>
                 <FaArrowRightLong style={{ color: '#FA8B02' }} />
@@ -175,7 +177,7 @@ const TopGuides = () => {
             <p style={guideDesc}>I made travel vlogs on yout...</p>
             <div style={{ display: 'flex', justifyContent: 'space-between' }} >
               <div style={guideInfo}>
-                <img src={DubaiGuide} alt=''>
+                <img style={image} src={DubaiGuide} alt=''>
                 </img>
                 <p style={{ color: '#FA8B02' }}>Larah M</p>
                 <FaArrowRightLong style={{ color: '#FA8B02' }} />
@@ -199,7 +201,7 @@ const TopGuides = () => {
             <p style={guideDesc}>Enjoy the best days in</p>
             <div style={{ display: 'flex', justifyContent: 'space-between' }} >
               <div style={guideInfo}>
-                <img src={ParisGuide} alt=''>
+                <img style={image} src={ParisGuide} alt=''>
                 </img>
                 <p style={{ color: '#FA8B02' }}>Liana</p>
                 <FaArrowRightLong style={{ color: '#FA8B02' }} />
@@ -223,7 +225,7 @@ const TopGuides = () => {
             <p style={guideDesc}>Born and raised here</p>
             <div style={{ display: 'flex', justifyContent: 'space-between' }} >
               <div style={guideInfo}>
-                <img src={LondonGuide} alt=''>
+                <img style={image} src={LondonGuide} alt=''>
                 </img>
                 <p style={{ color: '#FA8B02' }}>Kate</p>
                 <FaArrowRightLong style={{ color: '#FA8B02' }} />
@@ -250,7 +252,7 @@ const TopGuides = () => {
             <p style={guideDesc}>Born and raised in Paris</p>
             <div style={{ display: 'flex', justifyContent: 'space-between' }} >
               <div style={guideInfo}>
-                <img src={ParisGuide} alt=''>
+                <img style={image} src={ParisGuide} alt=''>
                 </img>
                 <p style={{ color: '#FA8B02' }}>Lucy A</p>
                 <FaArrowRightLong style={{ color: '#FA8B02' }} />
@@ -273,7 +275,7 @@ const TopGuides = () => {
             <p style={guideDesc}>I made travel vlogs on yout...</p>
             <div style={{ display: 'flex', justifyContent: 'space-between' }} >
               <div style={guideInfo}>
-                <img src={DubaiGuide} alt=''>
+                <img style={image} src={DubaiGuide} alt=''>
                 </img>
                 <p style={{ color: '#FA8B02' }}>Larah M</p>
                 <FaArrowRightLong style={{ color: '#FA8B02' }} />
@@ -297,7 +299,7 @@ const TopGuides = () => {
             <p style={guideDesc}>Enjoy the best days in</p>
             <div style={{ display: 'flex', justifyContent: 'space-between' }} >
               <div style={guideInfo}>
-                <img src={ParisGuide} alt=''>
+                <img style={image} src={ParisGuide} alt=''>
                 </img>
                 <p style={{ color: '#FA8B02' }}>Liana</p>
                 <FaArrowRightLong style={{ color: '#FA8B02' }} />
@@ -321,7 +323,7 @@ const TopGuides = () => {
             <p style={guideDesc}>Born and raised here</p>
             <div style={{ display: 'flex', justifyContent: 'space-between' }} >
               <div style={guideInfo}>
-                <img src={LondonGuide} alt=''>
+                <img style={image} src={LondonGuide} alt=''>
                 </img>
                 <p style={{ color: '#FA8B02' }}>Kate</p>
                 <FaArrowRightLong style={{ color: '#FA8B02' }} />

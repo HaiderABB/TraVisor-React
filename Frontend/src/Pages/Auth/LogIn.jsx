@@ -98,8 +98,8 @@ const Login = () => {
   }
 
   return (
-    <div style={containerStyle} className=' bg-cover bg-no-repeat bg-center flex justify-center font-sans h-screen items-center' >
-      <div style={{ width: '30%' }} className=' bg-white p-12 flex flex-col rounded-2xl gap-2'>
+    <div style={containerStyle} className=' min-w-max bg-cover bg-no-repeat bg-center flex justify-center font-sans h-screen items-center' >
+      <div className=' min-w-max  bg-white p-12 flex flex-col rounded-2xl gap-2'>
         <p style={{ fontWeight: 'bold', fontSize: '1.5rem', alignSelf: 'center', margin: '0' }}>Login to continue</p>
 
         <form onSubmit={handleSignIn}>
@@ -142,13 +142,13 @@ const Login = () => {
 
           <p style={{ color: '#333333', opacity: '60%', fontSize: '0.8rem', textAlign: 'right', marginTop: '0.5rem', marginBottom: '0.5rem' }}>
             <a className=' hover:underline hover:cursor-pointer' href='http://localhost:3000/ForgotPassword'>Forgot your password?</a></p>
-          <Button type='submit' sx={{ textTransform: 'none' }} variant="contained" size="medium" style={{ color: '#FFFFFF', backgroundColor: '#FA8B02', border: 'none', borderRadius: '1.5rem', width: '100%', fontFamily: 'Open Sans' }}>
+          <Button type='submit' className=' md:text-xs' sx={{ textTransform: 'none' }} variant="contained" size="medium" style={{ color: '#FFFFFF', backgroundColor: '#FA8B02', border: 'none', borderRadius: '1.5rem', width: '100%', fontFamily: 'Open Sans' }}>
             Sign In
           </Button>
 
         </form>
 
-        <p className=' self-center'>Don't have an account? <span className=' hover:underline hover:cursor-pointer' style={{ color: 'orange' }}><a
+        <p className=' lg:text-sm md:text-xs self-center'>Don't have an account? <span className=' hover:underline hover:cursor-pointer' style={{ color: 'orange' }}><a
           href='http://localhost:3000/SignUp'>Sign Up</a></span></p>
 
       </div>
